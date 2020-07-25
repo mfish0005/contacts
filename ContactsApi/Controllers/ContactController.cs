@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ContactsApi.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
-namespace GrayfishAPI.Controllers
+namespace ContactsApi.Controllers
 {
 
     [Route("contacts")]
@@ -24,10 +24,10 @@ namespace GrayfishAPI.Controllers
                 _context.Contacts.Add(new Contact
                 {
                     Id = 1,
-                    Name = "Uncle D.b. Initializer",
-                    Email = "db@db.com",                    
+                    Name = "Bob Johnson",
+                    Email = "bob@dbinitializer.com",
                 });
-
+                
                 _context.SaveChanges();
             }
         }
@@ -53,36 +53,16 @@ namespace GrayfishAPI.Controllers
             return contact;
         }
 
-        // POST: /contacts/post        
+        // POST: /contacts/post
         [HttpPost]
         [Route("post")]
         public async Task<ActionResult<Contact>> PostContact(Contact contact)
         {
-            //Added the contact to the context
             _context.Contacts.Add(contact);
 
-            //Save the context
-            await _context.SaveChangesAsync();            
+            await _context.SaveChangesAsync();
 
-            //Return the response            
             return CreatedAtAction(nameof(GetContact), new { id = contact.Id }, contact);
-        }
-
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            //Find the contact
-            var contact = _context.Contacts.Find(id);
-
-            //Make sure the contact exists
-            if (contact != null)
-            {
-                //Delete it
-                _context.Contacts.Remove(_context.Contacts.Find(contact.Id));
-
-                //Save the context
-                _context.SaveChanges();
-            }
         }
     }
 }

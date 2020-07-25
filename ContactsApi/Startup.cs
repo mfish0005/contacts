@@ -21,9 +21,10 @@ namespace ContactsApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddEntityFrameworkNpgsql().AddDbContext<ContactsApiContext>(opt =>
-            opt.UseNpgsql(Configuration.GetConnectionString("ContactsApiConnection")));
-            services.AddCors();                
+            services.AddDbContext<ContactsApiContext>(options =>
+            {
+                options.UseNpgsql(Configuration.GetSection("DatabaseConfig")["PostgresSQL"]);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,8 +34,6 @@ namespace ContactsApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 

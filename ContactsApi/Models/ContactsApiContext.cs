@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactsApi.Models
 {
-    public class ContactsApiContext : DbContext
-    {
+    public class ContactsApiContext: DbContext {
         public ContactsApiContext(DbContextOptions<ContactsApiContext> options) : base(options)
         {
 
