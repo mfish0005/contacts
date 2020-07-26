@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ContactsApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 
 namespace ContactsApi.Controllers
 {
@@ -27,15 +28,16 @@ namespace ContactsApi.Controllers
                     Name = "Bob Johnson",
                     Email = "bob@dbinitializer.com",
                 });
-                
+
                 _context.SaveChanges();
             }
         }
 
         // GET: /Contacts
-        [HttpGet]
+        [HttpGet]        
         public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
         {
+            var stuff = await _context.Contacts.ToListAsync();
             return await _context.Contacts.ToListAsync();
         }
 
@@ -63,6 +65,25 @@ namespace ContactsApi.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetContact), new { id = contact.Id }, contact);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Contact>> Delete(int id)
+        {            
+            var contact = await _context.Contacts.FindAsync(id);
+            
+            if (contact != null)
+            {
+                // Delete it
+                _context.Contacts.Remove(_context.Contacts.Find(contact.Id));
+                
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            } else
+            {
+                return NotFound();
+            }
         }
     }
 }
