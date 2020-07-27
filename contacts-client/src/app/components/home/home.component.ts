@@ -10,6 +10,7 @@ styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent implements OnInit {
+
   contacts: Contact[] = [];
 
 	constructor(private contactService: ContactService, private router: Router) {
@@ -18,20 +19,15 @@ export class HomeComponent implements OnInit {
 	ngOnInit() {
     this.contactService.getContacts().subscribe(contacts => {
       this.contacts = contacts;
-      console.log(contacts);
     });
   }
 
   editContact(contact: Contact): void {
     console.log('editing a contact: ', contact);
-    let con: Contact = new Contact();
-    con.name = 'New Contact';
-    con.id = 3827;
-    con.email = 'new@new.com';
-
-    this.contactService.createContact(con).subscribe(res => {
-      console.log(res);
-    });
+    this.contactService.setContactState(contact);
+    this.router.navigateByUrl(
+      `/edit-contact/${contact.id}`,
+    );
   }
 
   deleteContact(contact: Contact): void {

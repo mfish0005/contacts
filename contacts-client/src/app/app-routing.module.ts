@@ -1,3 +1,4 @@
+import { EditContactGuard } from './components/edit-contact/edit-contact.guard';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,8 +15,9 @@ const routes: Routes = [
     component: AddContactComponent,
   },
   {
-    path: 'edit-contact',
+    path: 'edit-contact/:id',
     component: EditContactComponent,
+    canActivate: [EditContactGuard]
   },
   {
     path: '**',

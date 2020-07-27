@@ -1,3 +1,4 @@
+import { EditContactGuard } from './components/edit-contact/edit-contact.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
 	],
 	providers: [
-    ContactService
+    ContactService,
+    EditContactGuard
   ],
 	bootstrap: [AppComponent]
 })

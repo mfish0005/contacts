@@ -12,11 +12,12 @@ styleUrls: ['./add-contact.component.scss']
 })
 
 export class AddContactComponent implements OnInit {
-  name = new FormControl('');
+
   addContactForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]]
   });
+
 	constructor(private contactService: ContactService, private formBuilder: FormBuilder, private router: Router) {
 	}
 
