@@ -1,0 +1,22 @@
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/nova-light/theme.css';
+@import '~primeng/resources/primeng.min.css';
+
+
+.button {
+  margin: 0 0.25rem;
+}
+
+.is-flex {
+  display: flex;
+}
+
+.is-100vh {
+  height: 100vh;
+}
+
+@import "~bulma";
+
+html {
+  overflow: hidden;
+}

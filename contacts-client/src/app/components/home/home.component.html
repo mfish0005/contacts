@@ -1,0 +1,46 @@
+<div class="home page">
+	<header class="header">
+		<section class="section has-text-centered">
+			<div class="container">
+				<div class="columns is-vcentered is-flex is-100vh">
+					<div class="column is-12">
+						<!-- <h1 class="is-size-1">
+							Business Contacts
+						</h1> -->
+						<p-virtualScroller [value]="contacts" scrollHeight="500px" [itemSize]="150">
+              <p-header>Business Contacts</p-header>
+              <p-footer>
+                <button class="button is-success" (click)="goToAddContact()">Add Contact</button>
+              </p-footer>
+							<ng-template pTemplate="item" let-contact>
+                <div class="columns contact-info">
+                  <div class="column is-4">
+                    <p class="is-size-5">
+                      #{{contact.id}}
+                    </p>
+                  </div>
+                  <div class="column is-4">
+                    <p class="is-size-5">
+                      Name: {{contact.name}}
+                    </p>
+                    <br>
+                    <button class="button is-success" (click)="editContact(contact)">Edit</button>
+                    <ng-template class="button-spacer"></ng-template>
+                    <button class="button is-danger" (click)="deleteContact(contact)">Delete</button>
+                  </div>
+
+                  <div class="column is-4">
+                    <p class="is-size-5">
+                      Email: {{contact.email}}
+                    </p>
+                  </div>
+                </div>
+
+							</ng-template>
+						</p-virtualScroller>
+					</div>
+				</div>
+			</div>
+		</section>
+	</header>
+</div>
