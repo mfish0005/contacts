@@ -5,6 +5,7 @@ using ContactsApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Cors;
+using Newtonsoft.Json;
 
 namespace ContactsApi.Controllers
 {
@@ -13,20 +14,21 @@ namespace ContactsApi.Controllers
     [ApiController]
     public class ContactsController : ControllerBase
     {
-        private readonly ContactsApiContext _context;
-        private readonly IContactRepository<Contact> _repo;
+        private readonly ContactsContext _context;
+        private readonly IContactRepository<Contact> _repository;
 
-        public ContactsController(ContactsApiContext context, IContactRepository<Contact> repo)
+        public ContactsController(ContactsContext context, IContactRepository<Contact> repository)
         {
             _context = context;
-            _repo = repo;
+            _repository = repository;
         }
 
-        // GET: /contacts
-        [HttpGet]        
-        public async Task<ActionResult<IEnumerable<Contact>>> GetContacts()
-        {            
-            return await _context.Contacts.ToListAsync();
+        [HttpGet]
+        public IActionResult GetContacts([FromQuery] ContactParameters contactParameters)
+        {
+            var contacts = _repository.GetContacts(contactParameters);   
+
+            return Ok(contacts);
         }
 
         // GET: /contacts/1
@@ -57,9 +59,9 @@ namespace ContactsApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            _repo.Add(contact);
+            _repository.Add(contact);
 
-            await _repo.SaveAsync(contact);
+            await _repository.SaveAsync(contact);
 
             return CreatedAtAction("GetContact", new { id = contact.Id }, contact);
         }
@@ -82,9 +84,9 @@ namespace ContactsApi.Controllers
 
             try
             {
-                _repo.Update(contact);
+                _repository.Update(contact);
 
-                var save = await _repo.SaveAsync(contact);
+                var save = await _repository.SaveAsync(contact);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -114,9 +116,9 @@ namespace ContactsApi.Controllers
             
             if (contact != null)
             {
-                _repo.Delete(contact);
+                _repository.Delete(contact);
 
-                await _repo.SaveAsync(contact);
+                await _repository.SaveAsync(contact);
 
                 return Ok(contact);
             } else

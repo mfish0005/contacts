@@ -21,7 +21,7 @@ namespace ContactsApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ContactsApiContext>(options =>
+            services.AddDbContext<ContactsContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetSection("DatabaseConfig")["PostgresSQL"]);
             });

@@ -7,11 +7,19 @@ namespace ContactsApi.Models
 {
     public class ContactRepository<T> : IContactRepository<T> where T : class
     {
-        private readonly ContactsApiContext _context;
+        private readonly ContactsContext _context;
 
-        public ContactRepository(ContactsApiContext context)
+        public ContactRepository(ContactsContext context)
         {
             _context = context;
+        }     
+
+        public PagedList<Contact> GetContacts(ContactParameters contactParameters)
+        {
+            return PagedList<Contact>.ToPagedList(
+                _context.Set<Contact>(),
+                contactParameters.PageNumber,
+                contactParameters.PageSize);
         }
 
         public void Add(T entity)
@@ -33,6 +41,6 @@ namespace ContactsApi.Models
         {
             await _context.SaveChangesAsync();
             return entity;
-        }
+        }        
     }
 }

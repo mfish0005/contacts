@@ -7,6 +7,8 @@ namespace ContactsApi.Models
 {
     public interface IContactRepository<T> where T : class
     {
+        PagedList<Contact> GetContacts(ContactParameters ownerParameters);
+        
         void Add(T entity);
 
         void Update(T entity);

@@ -7,8 +7,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ContactsApi.Migrations
 {
-    [DbContext(typeof(ContactsApiContext))]
-    partial class ContactsApiContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ContactsContext))]
+    partial class ContactsContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

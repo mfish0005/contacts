@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ContactsApi.Migrations
 {
-    [DbContext(typeof(ContactsApiContext))]
+    [DbContext(typeof(ContactsContext))]
     [Migration("20200726200348_Initial")]
     partial class Initial
     {
