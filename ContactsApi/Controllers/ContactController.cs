@@ -26,8 +26,8 @@ namespace ContactsApi.Controllers
         [HttpGet]
         public IActionResult GetContacts([FromQuery] ContactParameters contactParameters)
         {
-            var contacts = _repository.GetContacts(contactParameters);   
-
+            var count = _context.Contacts.Count();
+            var contacts = _repository.GetContacts(contactParameters);
             return Ok(contacts);
         }
 
@@ -48,6 +48,15 @@ namespace ContactsApi.Controllers
             }
 
             return Ok(contact);
+        }
+
+        [HttpGet]
+        [Route("count")]
+        public IActionResult GetContactCount()
+        {
+            var count = _context.Contacts.Count();
+
+            return Ok(count);
         }
 
         // POST: /contacts

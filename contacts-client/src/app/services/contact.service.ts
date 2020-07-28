@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Contact } from '../models/contact.model';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +23,37 @@ export class ContactService {
     this.contactState.id = contact.id;
     this.contactState.name = contact.name;
     this.contactState.email = contact.email;
+    this.contactState.phone = contact.phone;
+    this.contactState.address = contact.address;
   }
 
-  getContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.baseUrl);
+  getContactCount(): Observable<object> {
+    const url = `${this.baseUrl}/count`;
+
+    return this.http.get(url);
+  }
+
+  generateContact(): Contact {
+    return {
+        id: null,
+        name: null,
+        email: null,
+        phone: null,
+        address: null
+    }
+}
+
+  getPagedContacts(pageNumber: number, pageSize: number) {
+    const httpParams: HttpParams = new HttpParams()
+    .set('pageNumber', pageNumber.toString())
+    .set('pageSize', pageSize.toString());
+
+    const httpOptions: object = {
+      params: httpParams,
+      responseType: 'json'
+    }
+
+    return this.http.get<Contact[]>(this.baseUrl, httpOptions);
   }
 
   getContactById(id: number): Observable<Contact> {

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { DataViewModule } from 'primeng/dataview';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 		AppRoutingModule,
 		BrowserAnimationsModule,
     VirtualScrollerModule,
+    DataViewModule,
     HttpClientModule,
     ReactiveFormsModule
 	],

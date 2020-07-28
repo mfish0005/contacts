@@ -17,7 +17,7 @@ namespace ContactsApi.Models
         public PagedList<Contact> GetContacts(ContactParameters contactParameters)
         {
             return PagedList<Contact>.ToPagedList(
-                _context.Set<Contact>(),
+                _context.Set<Contact>().OrderBy(c => c.Id),
                 contactParameters.PageNumber,
                 contactParameters.PageSize);
         }

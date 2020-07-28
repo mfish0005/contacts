@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from 'src/app/models/contact.model';
-import { ContactService } from 'src/app/services/contact.service';
-import { FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Contact } from 'src/app/models/contact.model';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
 selector: 'edit-contact',
@@ -17,7 +17,9 @@ export class EditContactComponent implements OnInit {
 
   editContactForm = this.formBuilder.group({
     name: [''],
-    email: ['']
+    email: [''],
+    phone: [''],
+    address: ['']
   });
 
 	constructor(private contactService: ContactService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
@@ -27,17 +29,21 @@ export class EditContactComponent implements OnInit {
     this.contactState = this.contactService.getContactState();
     this.editContactForm.controls.name.setValue(this.contactState.name);
     this.editContactForm.controls.email.setValue(this.contactState.email);
+    this.editContactForm.controls.name.setValue(this.contactState.phone);
+    this.editContactForm.controls.email.setValue(this.contactState.address);
   }
 
   editContact(): void {
-    // Instantiate a contact so we can add the id to the payload
     let contact: Contact = new Contact();
+
     contact.name = this.editContactForm.value.name;
     contact.email = this.editContactForm.value.email;
+    contact.phone = this.editContactForm.value.phone;
+    contact.address = this.editContactForm.value.address;
     contact.id = parseInt(this.route.snapshot.params.id);
 
     this.contactService.editContact(contact).subscribe(res => {
-      console.log(res)
+      console.log(`%c ${res.name} was edited successfully`, 'color: lightgreen');
     });
 
     this.router.navigate(['']);

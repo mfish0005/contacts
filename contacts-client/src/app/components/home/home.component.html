@@ -4,40 +4,62 @@
 			<div class="container">
 				<div class="columns is-vcentered is-flex is-100vh">
 					<div class="column is-12">
-						<!-- <h1 class="is-size-1">
+						<h1 class="is-size-1">
 							Business Contacts
-						</h1> -->
-						<p-virtualScroller [value]="contacts" scrollHeight="500px" [itemSize]="150">
-              <p-header>Business Contacts</p-header>
-              <p-footer>
-                <button class="button is-success" (click)="goToAddContact()">Add Contact</button>
-              </p-footer>
-							<ng-template pTemplate="item" let-contact>
-                <div class="columns contact-info">
-                  <div class="column is-4">
-                    <p class="is-size-5">
-                      #{{contact.id}}
-                    </p>
-                  </div>
-                  <div class="column is-4">
-                    <p class="is-size-5">
-                      Name: {{contact.name}}
-                    </p>
-                    <br>
-                    <button class="button is-success" (click)="editContact(contact)">Edit</button>
-                    <ng-template class="button-spacer"></ng-template>
-                    <button class="button is-danger" (click)="deleteContact(contact)">Delete</button>
-                  </div>
+            </h1>
+            <div *ngIf="loadedContacts">
 
-                  <div class="column is-4">
-                    <p class="is-size-5">
-                      Email: {{contact.email}}
-                    </p>
-                  </div>
-                </div>
+              <p-virtualScroller
+              [value]="virtualContacts"
+              scrollHeight="500px"
+              [itemSize]="150"
+              [rows]="10"
+              [lazy]="true"
+              (onLazyLoad)="lazyLoadContacts($event)">
 
-							</ng-template>
-						</p-virtualScroller>
+                <p-header>Business Contacts</p-header>
+
+                <p-footer>
+                  <button class="button is-success" (click)="goToAddContact()">Add Contact</button>
+                </p-footer>
+
+                <ng-template pTemplate="item" let-contact>
+                  <div class="columns is-vcentered is-flex contact-info">
+                    <div class="column is-2"></div>
+                    {{contact.id}}
+                    <div class="column is-3">
+                      <p class="is-size-5">
+                        Name: {{contact.name}}
+                      </p>
+                      <p class="is-size-5">
+                        Email: {{contact.email}}
+                      </p>
+                    </div>
+
+                    <div class="column is-2">
+                      <button class="button is-success" (click)="editContact(contact)">Edit</button>
+                      <ng-template class="button-spacer"></ng-template>
+                      <button class="button is-danger" (click)="deleteContact(contact)">Delete</button>
+                    </div>
+
+                    <div class="column is-3">
+                      <p class="is-size-5">
+                        Phone: {{contact.phone}}
+                      </p>
+                      <p class="is-size-5">
+                        Address: {{contact.address}}
+                      </p>
+                    </div>
+
+                    <div class="column is-2"></div>
+                  </div>
+                </ng-template>
+
+                <ng-template let-contact pTemplate="loadingItem">
+                    Loading...
+                </ng-template>
+              </p-virtualScroller>
+            </div>
 					</div>
 				</div>
 			</div>

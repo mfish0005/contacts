@@ -7,20 +7,34 @@
             <div class="field">
               <label class="label">Name</label>
               <div class="control">
-                <input type="text" formControlName="name">
+                <input type="text" class="input"  formControlName="name">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input type="text" formControlName="email">
+                <input type="text" class="input"  formControlName="email">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Phone</label>
+              <div class="control">
+                <input type="text" class="input"  formControlName="phone">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Address</label>
+              <div class="control">
+                <input type="text" class="input"  formControlName="address">
               </div>
             </div>
 
             <div class="field is-grouped-centered">
-                <button class="button is-success" (click)="createContact()" [disabled]="!addContactForm.valid">Submit</button>
-                <button class="button is-success is-danger" (click)="cancel()">Cancel</button>
+                <button type="button" class="button is-success" (click)="createContact()" [disabled]="!addContactForm.valid">Submit</button>
+                <button type="button" class="button is-success is-danger" (click)="cancel()">Cancel</button>
             </div>
           </form>
         </div>
