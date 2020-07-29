@@ -43,10 +43,10 @@
                     </div>
 
                     <div class="column is-3">
-                      <p class="is-size-5">
+                      <p class="is-size-5" *ngIf="contact.phone">
                         Phone: {{contact.phone}}
                       </p>
-                      <p class="is-size-5">
+                      <p class="is-size-5" *ngIf="contact.address">
                         Address: {{contact.address}}
                       </p>
                     </div>

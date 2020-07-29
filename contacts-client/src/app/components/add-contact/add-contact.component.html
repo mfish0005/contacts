@@ -3,32 +3,35 @@
     <div class="container">
       <div class="columns is-vcentered is-flex is-100vh">
         <div class="column is-12">
-          <form [formGroup]="addContactForm">
+          <h1 class="title is-size-1">
+            Add Contact
+          </h1>
+          <form class="contact-form" [formGroup]="addContactForm">
             <div class="field">
               <label class="label">Name</label>
               <div class="control">
-                <input type="text" class="input" required formControlName="name">
+                <input type="text" class="input is-medium" required formControlName="name">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input type="text" class="input" required formControlName="email">
+                <input type="text" class="input is-medium" required formControlName="email">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Phone</label>
               <div class="control">
-                <input type="text" class="input"  formControlName="phone">
+                <input type="text" class="input is-medium"  formControlName="phone">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Address</label>
               <div class="control">
-                <input type="text" class="input"  formControlName="address">
+                <input type="text" class="input is-medium"  formControlName="address">
               </div>
             </div>
 

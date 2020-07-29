@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Contact } from 'src/app/models/contact.model';
@@ -16,8 +16,8 @@ export class EditContactComponent implements OnInit {
   contactState: Contact;
 
   editContactForm = this.formBuilder.group({
-    name: [''],
-    email: [''],
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     phone: [''],
     address: ['']
   });
