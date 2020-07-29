@@ -17,11 +17,9 @@
               [lazy]="true"
               (onLazyLoad)="lazyLoadContacts($event)">
 
-                <p-header>Business Contacts</p-header>
-
-                <p-footer>
+                <p-header>
                   <button class="button is-success" (click)="goToAddContact()">Add Contact</button>
-                </p-footer>
+                </p-header>
 
                 <ng-template pTemplate="item" let-contact>
                   <div class="columns is-vcentered is-flex contact-info">
