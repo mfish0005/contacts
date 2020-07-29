@@ -33,16 +33,6 @@ export class ContactService {
     return this.http.get(url);
   }
 
-  generateContact(): Contact {
-    return {
-        id: null,
-        name: null,
-        email: null,
-        phone: null,
-        address: null
-    }
-}
-
   getPagedContacts(pageNumber: number, pageSize: number) {
     const httpParams: HttpParams = new HttpParams()
     .set('pageNumber', pageNumber.toString())

@@ -29,8 +29,8 @@ namespace ContactsApi.Models
 			var count = source.Count();
 			List<T> items;
 			
-			items = source.Skip((pageNumber / 25) * pageSize).Take(pageSize).ToList();
-		
+			items = source.Skip((pageNumber / 25) * 25).Take(25).ToList();						
+
 			return new PagedList<T>(items, count, pageNumber, pageSize);
 		}
 	}
