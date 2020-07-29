@@ -28,16 +28,13 @@ export class HomeComponent implements OnInit {
 	ngOnInit() {
     this.contactService.getContactCount().subscribe(res => {
       this.contactCount = res;
-      this.virtualContacts = Array.from({length: this.contactCount}).map(() => this.contactService.generateContact());;
+      this.virtualContacts = Array.from({length: this.contactCount});;
     })
   }
 
-  // This wonderful method gets called twice by primeNG because hjklashdashjd;hlkjas
   lazyLoadContacts(event: LazyLoadEvent): void {
-
-    this.contactsPageNumber = event.first <= 10 ? 1 : this.contactsPageNumber + 1;
-
-    this.contactService.getPagedContacts(this.contactsPageNumber, event.rows).subscribe(contacts => {
+    // NOTE: Gets 10 contacts per page for demonstration purposes.  In production it would get more like 50 or 100
+    this.contactService.getPagedContacts(event.first, event.rows).subscribe(contacts => {
       // Log the next page to demonstrate that it's using a paged response...
       console.log('%c GOT PAGE: ', 'color: green;', contacts);
 
@@ -45,7 +42,6 @@ export class HomeComponent implements OnInit {
 
       this.loadedContacts = this.contacts;
 
-      // Problem starts here.  Pushes the first 10 rows TWICE grrrrrrrrr
       Array.prototype.splice.apply(this.virtualContacts, [...
       [event.first, event.rows], ...this.loadedContacts]);
 
