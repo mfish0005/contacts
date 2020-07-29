@@ -3,14 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ContactsApi.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Cors;
-using Newtonsoft.Json;
 
 namespace ContactsApi.Controllers
 {
 
-    [Route("contacts")]
+    [Route("api/contacts")]
     [ApiController]
     public class ContactsController : ControllerBase
     {
@@ -23,17 +20,33 @@ namespace ContactsApi.Controllers
             _repository = repository;
         }
 
+        // GET: /api/contacts?pageNumber=n&pageSize=n
         [HttpGet]
         public IActionResult GetContacts([FromQuery] ContactParameters contactParameters)
         {
-            var count = _context.Contacts.Count();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var contacts = _repository.GetContacts(contactParameters);
+
             return Ok(contacts);
         }
 
-        // GET: /contacts/1
+        // GET: /api/contacts/count
+        [HttpGet]
+        [Route("count")]
+        public IActionResult GetContactCount()
+        {
+            var count = _context.Contacts.Count();
+
+            return Ok(count);
+        }
+
+        // GET: /api/contacts/id
         [HttpGet("{id}")]
-        public async Task<ActionResult<Contact>> GetContact(int id)
+        public async Task<ActionResult<Contact>> GetContact([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -50,18 +63,9 @@ namespace ContactsApi.Controllers
             return Ok(contact);
         }
 
-        [HttpGet]
-        [Route("count")]
-        public IActionResult GetContactCount()
-        {
-            var count = _context.Contacts.Count();
-
-            return Ok(count);
-        }
-
-        // POST: /contacts
+        // POST: /api/contacts
         [HttpPost]        
-        public async Task<ActionResult<Contact>> PostContact(Contact contact)
+        public async Task<ActionResult<Contact>> PostContact([FromBody] Contact contact)
         {
             if (!ModelState.IsValid)
             {
@@ -75,9 +79,9 @@ namespace ContactsApi.Controllers
             return CreatedAtAction("GetContact", new { id = contact.Id }, contact);
         }
 
-        // PUT: contacts/5
+        // PUT: /api/contacts/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutContact(int id, Contact contact)
+        public async Task<IActionResult> PutContact([FromRoute] int id, [FromBody] Contact contact)
         {
             if (!ModelState.IsValid)
             {
@@ -112,7 +116,7 @@ namespace ContactsApi.Controllers
             return CreatedAtAction("GetContact", new { id = contact.Id }, contact);
         }
 
-        // DELETE: /contacts
+        // DELETE: /api/contacts
         [HttpDelete("{id}")]
         public async Task<ActionResult<Contact>> DeleteContact(int id)
         {

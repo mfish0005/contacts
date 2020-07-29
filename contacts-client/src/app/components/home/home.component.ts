@@ -33,9 +33,8 @@ export class HomeComponent implements OnInit {
   }
 
   lazyLoadContacts(event: LazyLoadEvent): void {
-    // NOTE: Gets 10 contacts per page for demonstration purposes.  In production it would get more like 50 or 100
     this.contactService.getPagedContacts(event.first, event.rows).subscribe(contacts => {
-      // Log the next page to demonstrate that it's using a paged response...
+      // Log the contacts to demonstrate that it's using a paged response
       console.log('%c GOT PAGE: ', 'color: green;', contacts);
 
       this.contacts = contacts;
@@ -61,9 +60,8 @@ export class HomeComponent implements OnInit {
 
     if (confirmed) {
       this.contactService.deleteContact(contact).subscribe();
-      // TODO: This doesn't work.  Find another way of showing the user it's been deleted
-      const contactIndex = this.virtualContacts.findIndex((el) => el.id === contact.id);
-      this.virtualContacts.splice(contactIndex, 1);
+      // TODO: Refresh the component and send the user back to where they were instead
+      window.location.reload();
     } else {
       return;
     }

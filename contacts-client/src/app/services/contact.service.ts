@@ -11,7 +11,7 @@ export class ContactService {
 
   contactState: Contact = new Contact();
 
-  baseUrl: string = 'http://localhost:61953/contacts';
+  baseUrl: string = 'http://localhost:61953/api/contacts';
 
   constructor(private http: HttpClient) { }
 

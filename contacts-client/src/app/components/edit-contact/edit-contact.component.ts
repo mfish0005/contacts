@@ -29,8 +29,8 @@ export class EditContactComponent implements OnInit {
     this.contactState = this.contactService.getContactState();
     this.editContactForm.controls.name.setValue(this.contactState.name);
     this.editContactForm.controls.email.setValue(this.contactState.email);
-    this.editContactForm.controls.name.setValue(this.contactState.phone);
-    this.editContactForm.controls.email.setValue(this.contactState.address);
+    this.editContactForm.controls.phone.setValue(this.contactState.phone);
+    this.editContactForm.controls.address.setValue(this.contactState.address);
   }
 
   editContact(): void {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContactsApi.Models
 {
@@ -28,8 +27,10 @@ namespace ContactsApi.Models
 		public static PagedList<T> ToPagedList(IQueryable<T> source, int pageNumber, int pageSize)
 		{
 			var count = source.Count();
-			var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-
+			List<T> items;
+			
+			items = source.Skip((pageNumber / 25) * pageSize).Take(pageSize).ToList();
+		
 			return new PagedList<T>(items, count, pageNumber, pageSize);
 		}
 	}
