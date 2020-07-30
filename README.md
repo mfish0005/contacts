@@ -37,4 +37,4 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 ### Known Issues
 
 1. After creating/editing a contact for the first time the UI sometimes won't show the contact. Reload the page and it should be there
-2. PrimeNG's virtual scroller(the library I used for the contact list) has a "feature" where it's lazy loading event is called twice when a component loads.  This caused the first page of contacts to be loaded twice.  To get around this I hardcoded the paged endpoint's `pageNumber` with PrimeNG's `event.first` property.  Makes the urls of my paged endpoint weird but it fixes the issue for now
+2. PrimeNG's virtual scroller(the library I used for the contact list) has a "feature" where it's lazy loading event is called twice when a component loads.  This caused the first page of contacts to be loaded twice.  To get around this I hardcoded the paged endpoint's `pageSize` to sync it with PrimeNG's `event.first` property.  Makes the urls of my paged endpoint look weird but it mostly fixes it for now.
