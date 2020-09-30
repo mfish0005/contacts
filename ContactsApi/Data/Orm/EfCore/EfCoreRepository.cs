@@ -52,12 +52,12 @@ namespace ContactsApi.Data.Orm.EfCore
             return await _context.Set<TEntity>().CountAsync();
         }
         
-        public PagedList<TEntity> GetPagedList(ContactParameters contactParameters)
+        public async Task<PagedList<TEntity>> GetPagedList(int pageNumber, int pageSize)
         {
-            return PagedList<TEntity>.ToPagedList(
+            return await PagedList<TEntity>.ToPagedList(
                 _context.Set<TEntity>().OrderBy(e => e.Id),
-                contactParameters.PageNumber,
-                contactParameters.PageSize);
+                pageNumber,
+                pageSize);
         }
         
         public async Task<List<TEntity>> GetAll()

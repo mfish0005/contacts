@@ -19,16 +19,16 @@ namespace ContactsApi.Controllers
             _repository = repository;
         }
 
-        // GET: /api/contacts?pageNumber=n&pageSize=n
+        // GET: /api/[controller]/?pageNumber=n&pageSize=n
         [HttpGet]
-        public IActionResult GetContacts([FromQuery] ContactParameters contactParameters)
+        public async Task<IActionResult> GetPagedList([FromQuery] int pageNumber, int pageSize)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = _repository.GetPagedList(contactParameters);
+            var result = await _repository.GetPagedList(pageNumber, pageSize);
 
             return Ok(result);
         }
@@ -50,7 +50,7 @@ namespace ContactsApi.Controllers
         // GET: api/[controller]/count
         [HttpGet]
         [Route("count")]
-        public async Task<ActionResult<int>> GetEntityCount()
+        public async Task<ActionResult<int>> GetCount()
         {
             var count = await _repository.GetCount();
 

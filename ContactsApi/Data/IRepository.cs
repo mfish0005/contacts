@@ -9,7 +9,7 @@ namespace ContactsApi.Data
 
         Task<int> GetCount();
 
-        PagedList<T> GetPagedList(ContactParameters contactParameters);
+        Task<PagedList<T>> GetPagedList(int pageNumber, int pageSize);
         
         Task<T> Add(T entity);
 
