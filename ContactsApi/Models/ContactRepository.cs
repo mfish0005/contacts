@@ -10,7 +10,7 @@ namespace ContactsApi.Models
         public ContactRepository(ContactsContext context)
         {
             _context = context;
-        }     
+        }
 
         public PagedList<Contact> GetContacts(ContactParameters contactParameters)
         {
@@ -39,6 +39,6 @@ namespace ContactsApi.Models
         {
             await _context.SaveChangesAsync();
             return entity;
-        }        
+        }
     }
 }

@@ -1,3 +1,4 @@
+using ContactsApi.Data.Orm.EfCore;
 using ContactsApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +26,8 @@ namespace ContactsApi
             {
                 options.UseNpgsql(Configuration.GetSection("DatabaseConfig")["PostgresSQL"]);
             });
-            services.AddScoped(typeof(IContactRepository<>), typeof(ContactRepository<>));
+            // services.AddScoped(typeof(IContactRepository<>), typeof(ContactRepository<>));
+            services.AddScoped<ContactRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
