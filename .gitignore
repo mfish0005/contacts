@@ -10,7 +10,7 @@
 # dependencies
 */node_modules
 
-# IDE - VSCode
+# IDEs
 */.vscode/*
 .vscode/*
 */.vs/
@@ -20,6 +20,7 @@
 */!.vscode/launch.json
 */!.vscode/extensions.json
 */.history/*
+*/.idea/*
 
 # System Files
 */.DS_Store

@@ -27,9 +27,8 @@ namespace ContactsApi.Models
 		public static PagedList<T> ToPagedList(IQueryable<T> source, int pageNumber, int pageSize)
 		{
 			var count = source.Count();
-			List<T> items;
 			
-			items = source.Skip((pageNumber / 25) * 25).Take(25).ToList();						
+			var items = source.Skip((pageNumber) * pageSize).Take(pageSize).ToList();						
 
 			return new PagedList<T>(items, count, pageNumber, pageSize);
 		}

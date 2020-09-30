@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   loadedContacts: Contact[] = [];
 
-  contactsPageNumber: number = 1;
+  pageDifference: number = 0;
 
   contactCount;
 
@@ -33,7 +33,11 @@ export class HomeComponent implements OnInit {
   }
 
   lazyLoadContacts(event: LazyLoadEvent): void {
-    this.contactService.getPagedContacts(event.first, event.rows).subscribe(contacts => {
+    if (event.first !== 0) {
+        this.pageDifference = this.pageDifference + 24;
+    }
+
+    this.contactService.getPagedContacts(event.first - this.pageDifference, event.rows).subscribe(contacts => {
       // Log the contacts to demonstrate that it's using a paged response
       console.log('%c GOT PAGE: ', 'color: green;', contacts);
 
