@@ -10,11 +10,11 @@ namespace ContactsApi.Data
         Task<int> GetCount();
 
         Task<PagedList<T>> GetPagedList(int pageNumber, int pageSize);
-        
+
         Task<T> Add(T entity);
 
         Task<T> Update(T entity);
 
-        Task<T> Delete(int id);
+        Task<T> Remove(int id);
     }
 }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using ContactsApi.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContactsApi.Data.Orm.EfCore
+namespace ContactsApi.Data.EfCore.Repositories
 {
     public abstract class EfCoreRepository<TEntity, TContext> : IRepository<TEntity>
         where TEntity : class, IEntity
@@ -26,7 +26,7 @@ namespace ContactsApi.Data.Orm.EfCore
             return entity;
         }
 
-        public async Task<TEntity> Delete(int id)
+        public async Task<TEntity> Remove(int id)
         {
             var entity = await _context.Set<TEntity>().FindAsync(id);
 
@@ -58,11 +58,6 @@ namespace ContactsApi.Data.Orm.EfCore
                 _context.Set<TEntity>().OrderByDescending(e => e.Id),
                 pageNumber,
                 pageSize);
-        }
-
-        public async Task<List<TEntity>> GetAll()
-        {
-            return await _context.Set<TEntity>().ToListAsync();
         }
 
         public async Task<TEntity> Update(TEntity entity)

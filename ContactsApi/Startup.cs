@@ -1,4 +1,6 @@
-using ContactsApi.Data.Orm.EfCore;
+using ContactsApi.Data.EfCore;
+using ContactsApi.Data.EfCore.Repositories;
+using ContactsApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,7 @@ namespace ContactsApi
             });
             // services.AddScoped(typeof(IContactRepository<>), typeof(ContactRepository<>));
             services.AddScoped<ContactRepository>();
+            services.AddTransient<IContactService, ContactService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

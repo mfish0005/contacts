@@ -5,7 +5,7 @@ using System.Resources;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace ContactsApi.Data.Orm.EfCore
+namespace ContactsApi.Data.EfCore
 {
     public class ContactsContext : DbContext
     {
@@ -18,7 +18,7 @@ namespace ContactsApi.Data.Orm.EfCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Note: For Postgres to auto generate entity ids it requires seed data to use negative ids
+            // Note: Postgres will only auto generate ids if seed data uses negative ids
             var path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot/contacts.json");
             var json = File.ReadAllText(path);
 

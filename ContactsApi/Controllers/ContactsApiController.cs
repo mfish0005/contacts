@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using ContactsApi.Data;
 using ContactsApi.Models;
+using ContactsApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsApi.Controllers
@@ -13,85 +13,94 @@ namespace ContactsApi.Controllers
         where TRepository : IRepository<TEntity>
     {
         private readonly TRepository _repository;
+        private readonly IContactService _contactService;
 
-        protected ContactsApiController(TRepository repository)
+        protected ContactsApiController(TRepository repository, IContactService contactService)
         {
             _repository = repository;
+            _contactService = contactService;
         }
 
         // GET: /api/[controller]?pageNumber=n&pageSize=n
         [HttpGet]
-        public async Task<IActionResult> GetPagedList([FromQuery] int pageNumber, int pageSize)
+        public async Task<IActionResult> GetContactsPage([FromQuery] int pageNumber, int pageSize)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _repository.GetPagedList(pageNumber, pageSize);
+            PagedList<Contact> result = await _contactService.GetContactsPage(pageNumber, pageSize);
 
             return Ok(result);
         }
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TEntity>> Get(int id)
+        public async Task<ActionResult<Contact>> GetContactById(int id)
         {
-            var entity = await _repository.Get(id);
+            Contact contact = await _contactService.GetContactById(id);
 
-            if (entity == null)
+            if (contact == null)
             {
                 return NotFound();
             }
 
-            return entity;
+            return contact;
         }
 
         // GET: api/[controller]/count
         [HttpGet]
         [Route("count")]
-        public async Task<ActionResult<int>> GetCount()
+        public async Task<ActionResult<int>> GetContactCount()
         {
-            var count = await _repository.GetCount();
+            int count = await _contactService.GetContactCount();
 
             return count;
         }
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, TEntity entity)
+        public async Task<ActionResult> Put(int id, Contact contact)
         {
-            if (id != entity.Id)
+            if (id != contact.Id)
             {
                 return BadRequest();
             }
 
-            await _repository.Update(entity);
+            await _contactService.UpdateContact(contact);
 
-            return CreatedAtAction("Get", new { id = entity.Id }, entity);
+            return Ok(contact);
         }
 
         // POST: api/[controller]
         [HttpPost]
-        public async Task<ActionResult<TEntity>> Post(TEntity entity)
+        public async Task<ActionResult<TEntity>> PostContact(Contact contact)
         {
-            await _repository.Add(entity);
+            await _contactService.CreateContact(contact);
 
-            return CreatedAtAction("Get", new { id = entity.Id }, entity);
+            return Ok(contact);
         }
 
         // DELETE: api/[controller]/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TEntity>> Delete(int id)
+        public async Task<ActionResult> DeleteContact(int id)
         {
-            var entity = await _repository.Delete(id);
+            if (id == 0)
+            {
+                return BadRequest();
+            }
 
-            if (entity == null)
+            Contact contact = await _contactService.GetContactById(id);
+
+            if (contact == null)
             {
                 return NotFound();
             }
 
-            return entity;
+            await _contactService.DeleteContact(id);
+
+            return NoContent();
         }
 
     }

@@ -1,6 +1,7 @@
-using ContactsApi.Data.Orm.EfCore;
+using ContactsApi.Data.EfCore.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using ContactsApi.Models;
+using ContactsApi.Services;
 
 namespace ContactsApi.Controllers
 {
@@ -9,9 +10,9 @@ namespace ContactsApi.Controllers
     [ApiController]
     public class ContactController : ContactsApiController<Contact, ContactRepository>
     {
-        public ContactController(ContactRepository repository) : base(repository)
+        public ContactController(ContactRepository repository, IContactService contactService) : base(repository, contactService)
         {
-            
+
         }
     }
 }
