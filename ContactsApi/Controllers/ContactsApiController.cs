@@ -19,7 +19,7 @@ namespace ContactsApi.Controllers
             _repository = repository;
         }
 
-        // GET: /api/[controller]/?pageNumber=n&pageSize=n
+        // GET: /api/[controller]?pageNumber=n&pageSize=n
         [HttpGet]
         public async Task<IActionResult> GetPagedList([FromQuery] int pageNumber, int pageSize)
         {
@@ -68,7 +68,7 @@ namespace ContactsApi.Controllers
 
             await _repository.Update(entity);
 
-            return NoContent();
+            return CreatedAtAction("Get", new { id = entity.Id }, entity);
         }
 
         // POST: api/[controller]

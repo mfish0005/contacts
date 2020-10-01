@@ -43,10 +43,9 @@ export class EditContactComponent implements OnInit {
     contact.id = parseInt(this.route.snapshot.params.id);
 
     this.contactService.editContact(contact).subscribe(res => {
-      console.log(`%c ${res.name} was edited successfully`, 'color: lightgreen');
+      console.log(`%c ${res.name} was edited successfully`, 'color: lightgreen', res);
+      this.router.navigate(['']);
     });
-
-    this.router.navigate(['']);
   }
 
   cancel(): void {

@@ -27,9 +27,9 @@ export class AddContactComponent implements OnInit {
 
   createContact(): void {
     this.contactService.createContact(this.addContactForm.value).subscribe(res => {
-      console.log(`%c ${res.name} was created successfully`, 'color: lightgreen');
+      console.log(`%c ${res.name} was created successfully`, 'color: lightgreen', res);
+      this.router.navigate(['']);
     });
-    this.router.navigate(['']);
   }
 
   cancel(): void {
