@@ -16,14 +16,14 @@ namespace ContactsApi.Services
 
         public async Task<PagedList<Contact>> GetContactsPage(int pageNumber, int pageSize)
         {
-            PagedList<Contact> contactsPage = await _contactRepository.GetPagedList(pageNumber, pageSize);
+            var contactsPage = await _contactRepository.GetPagedList(pageNumber, pageSize);
 
             return contactsPage;
         }
 
         public async Task<Contact> GetContactById(int id)
         {
-            Contact contact = await _contactRepository.Get(id);
+            var contact = await _contactRepository.Get(id);
 
             return contact;
         }

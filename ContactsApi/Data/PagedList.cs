@@ -8,12 +8,12 @@ namespace ContactsApi.Data
 {
 	public class PagedList<T> : List<T>
 	{
-		public int CurrentPage { get; }
-		public int TotalPages { get; }
-		public int PageSize { get; }
-		public int TotalCount { get; }
+		private int CurrentPage { get; }
+		private int TotalPages { get; }
+		private int PageSize { get; }
+		private int TotalCount { get; }
 
-		public PagedList(List<T> items, int count, int pageNumber, int pageSize)
+		private PagedList(IEnumerable<T> items, int count, int pageNumber, int pageSize)
 		{
 			TotalCount = count;
 			PageSize = pageSize;

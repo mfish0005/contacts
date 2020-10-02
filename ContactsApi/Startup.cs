@@ -27,7 +27,6 @@ namespace ContactsApi
             {
                 options.UseNpgsql(Configuration.GetSection("DatabaseConfig")["PostgresSQL"]);
             });
-            // services.AddScoped(typeof(IContactRepository<>), typeof(ContactRepository<>));
             services.AddScoped<ContactRepository>();
             services.AddTransient<IContactService, ContactService>();
         }
