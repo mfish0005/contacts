@@ -3,6 +3,7 @@ using Contacts.Api.Models;
 using Contacts.Api.Models.Requests;
 using Contacts.Api.Services;
 using Microsoft.AspNetCore.Mvc;
+using Contacts.Logger;
 
 namespace Contacts.Api.Controllers
 {
@@ -12,16 +13,23 @@ namespace Contacts.Api.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;
+        private readonly ILoggerManager _logger;
 
-        public ContactController(IContactService contactService)
+        public ContactController(IContactService contactService, ILoggerManager logger)
         {
             _contactService = contactService;
+            _logger = logger;
         }
 
         // GET: /api/[controller]?pageNumber=n&pageSize=n
         [HttpGet]
         public async Task<IActionResult> GetContactsPage([FromQuery] PagedListRequest request)
         {
+            _logger.LogInfo("Info");
+            _logger.LogDebug("debug");
+            _logger.LogWarn("Warn");
+            _logger.LogError("Error");
+
             var contacts = await _contactService.GetContactsPage(request);
 
             if (contacts == null) {
