@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using ContactsApi.Data;
-using ContactsApi.Data.EfCore.Repositories;
-using ContactsApi.Models;
-using ContactsApi.Models.Requests;
+using Contacts.Api.Data;
+using Contacts.Api.Data.EfCore.Repositories;
+using Contacts.Api.Models;
+using Contacts.Api.Models.Requests;
 
-namespace ContactsApi.Services
+namespace Contacts.Api.Services
 {
     public class ContactService: IContactService
     {

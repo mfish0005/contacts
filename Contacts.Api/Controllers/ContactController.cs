@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using ContactsApi.Models;
+using Contacts.Api.Models;
+using Contacts.Api.Models.Requests;
+using Contacts.Api.Services;
 using Microsoft.AspNetCore.Mvc;
-using ContactsApi.Services;
-using ContactsApi.Models.Requests;
 
-namespace ContactsApi.Controllers
+namespace Contacts.Api.Controllers
 {
 
     [Route("api/contacts")]
@@ -35,10 +35,6 @@ namespace ContactsApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Contact>> GetContactById(int id)
         {
-            if (id == 0) {
-                return BadRequest();
-            }
-
             var contact = await _contactService.GetContactById(id);
 
             if (contact == null)
@@ -86,11 +82,6 @@ namespace ContactsApi.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteContact(int id)
         {
-            if (id == 0)
-            {
-                return BadRequest();
-            }
-
             var contact = await _contactService.GetContactById(id);
 
             if (contact == null)

@@ -1,6 +1,6 @@
-using ContactsApi.Data.EfCore;
-using ContactsApi.Data.EfCore.Repositories;
-using ContactsApi.Services;
+using Contacts.Api.Data.EfCore;
+using Contacts.Api.Data.EfCore.Repositories;
+using Contacts.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ContactsApi
+namespace Contacts.Api
 {
     public class Startup
     {

@@ -1,4 +1,4 @@
-namespace ContactsApi.Data
+namespace Contacts.Api.Data
 {
     public interface IEntity
     {

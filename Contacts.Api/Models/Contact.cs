@@ -1,9 +1,8 @@
-using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ContactsApi.Data;
+using Contacts.Api.Data;
 
-namespace ContactsApi.Models
+namespace Contacts.Api.Models
 {
     public class Contact: IEntity
     {

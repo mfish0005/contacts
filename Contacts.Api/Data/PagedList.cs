@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContactsApi.Data
+namespace Contacts.Api.Data
 {
 	public class PagedList<IEntity> : List<IEntity>
 	{

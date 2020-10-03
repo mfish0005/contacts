@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ContactsApi.Models;
+using Contacts.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContactsApi.Data.EfCore.Repositories
+namespace Contacts.Api.Data.EfCore.Repositories
 {
     public abstract class EfCoreRepository<TEntity, TContext> : IRepository<TEntity>
         where TEntity : class, IEntity

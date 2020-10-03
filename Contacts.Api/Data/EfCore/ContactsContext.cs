@@ -1,11 +1,11 @@
 using System.IO;
-using ContactsApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Resources;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Contacts.Api.Models;
 
-namespace ContactsApi.Data.EfCore
+namespace Contacts.Api.Data.EfCore
 {
     public class ContactsContext : DbContext
     {

@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using ContactsApi.Data;
-using ContactsApi.Models;
-using ContactsApi.Models.Requests;
+using Contacts.Api.Data;
+using Contacts.Api.Models;
+using Contacts.Api.Models.Requests;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContactsApi.Services
+namespace Contacts.Api.Services
 {
     public interface IContactService
     {

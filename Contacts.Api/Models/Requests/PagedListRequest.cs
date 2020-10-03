@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ContactsApi.Models.Requests
+namespace Contacts.Api.Models.Requests
 {
     public class PagedListRequest
     {

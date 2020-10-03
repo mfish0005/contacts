@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using ContactsApi.Models;
+using Contacts.Api.Models;
 
-namespace ContactsApi.Data
+namespace Contacts.Api.Data
 {
     public interface IRepository<T> where T : class
     {
