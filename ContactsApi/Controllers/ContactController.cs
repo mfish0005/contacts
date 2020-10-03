@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using ContactsApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using ContactsApi.Services;
+using ContactsApi.Models.Requests;
 
 namespace ContactsApi.Controllers
 {
@@ -19,17 +20,25 @@ namespace ContactsApi.Controllers
 
         // GET: /api/[controller]?pageNumber=n&pageSize=n
         [HttpGet]
-        public async Task<IActionResult> GetContactsPage([FromQuery] int pageNumber, int pageSize)
+        public async Task<IActionResult> GetContactsPage([FromQuery] PagedListRequest request)
         {
-            var contactsPage = await _contactService.GetContactsPage(pageNumber, pageSize);
+            var contacts = await _contactService.GetContactsPage(request);
 
-            return Ok(contactsPage);
+            if (contacts == null) {
+                return NotFound();
+            }
+
+            return Ok(contacts);
         }
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Contact>> GetContactById(int id)
         {
+            if (id == 0) {
+                return BadRequest();
+            }
+
             var contact = await _contactService.GetContactById(id);
 
             if (contact == null)
@@ -52,16 +61,16 @@ namespace ContactsApi.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutContact(int id, Contact contact)
+        public async Task<ActionResult> PutContact(Contact contact)
         {
-            if (id != contact.Id)
+            var result = await _contactService.UpdateContact(contact);
+
+            if (result == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            await _contactService.UpdateContact(contact);
-
-            return Ok(contact);
+            return Ok(result);
         }
 
         // POST: api/[controller]

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using ContactsApi.Data;
 using ContactsApi.Data.EfCore.Repositories;
 using ContactsApi.Models;
+using ContactsApi.Models.Requests;
 
 namespace ContactsApi.Services
 {
@@ -14,11 +15,11 @@ namespace ContactsApi.Services
             _contactRepository = repository;
         }
 
-        public async Task<PagedList<Contact>> GetContactsPage(int pageNumber, int pageSize)
+        public async Task<PagedList<Contact>> GetContactsPage(PagedListRequest request)
         {
-            var contactsPage = await _contactRepository.GetPagedList(pageNumber, pageSize);
+            var contacts = await _contactRepository.GetPagedList(request.PageNumber, request.PageSize);
 
-            return contactsPage;
+            return contacts;
         }
 
         public async Task<Contact> GetContactById(int id)
