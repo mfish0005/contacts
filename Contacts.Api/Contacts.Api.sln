@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApi", "ContactsApi.csproj", "{B79B6BB3-E8CE-4B64-BC57-804442A24234}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Api", "Contacts.Api.csproj", "{B79B6BB3-E8CE-4B64-BC57-804442A24234}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

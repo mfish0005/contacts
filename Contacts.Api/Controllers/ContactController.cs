@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Contacts.Api.Models;
 using Contacts.Api.Models.Requests;
@@ -25,11 +26,6 @@ namespace Contacts.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetContactsPage([FromQuery] PagedListRequest request)
         {
-            _logger.LogInfo("Info");
-            _logger.LogDebug("debug");
-            _logger.LogWarn("Warn");
-            _logger.LogError("Error");
-
             var contacts = await _contactService.GetContactsPage(request);
 
             if (contacts == null) {
@@ -44,11 +40,6 @@ namespace Contacts.Api.Controllers
         public async Task<ActionResult<Contact>> GetContactById(int id)
         {
             var contact = await _contactService.GetContactById(id);
-
-            if (contact == null)
-            {
-                return NotFound();
-            }
 
             return Ok(contact);
         }
@@ -81,9 +72,9 @@ namespace Contacts.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Contact>> PostContact(Contact contact)
         {
-            await _contactService.CreateContact(contact);
+            var result = await _contactService.CreateContact(contact);
 
-            return Ok(contact);
+            return Ok(result);
         }
 
         // DELETE: api/[controller]/5
@@ -91,11 +82,6 @@ namespace Contacts.Api.Controllers
         public async Task<ActionResult> DeleteContact(int id)
         {
             var contact = await _contactService.GetContactById(id);
-
-            if (contact == null)
-            {
-                return NotFound();
-            }
 
             await _contactService.DeleteContact(id);
 

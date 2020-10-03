@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Contacts.Api.Data;
 using Contacts.Api.Data.EfCore.Repositories;
+using Contacts.Api.Exceptions;
 using Contacts.Api.Models;
 using Contacts.Api.Models.Requests;
 
@@ -26,6 +27,11 @@ namespace Contacts.Api.Services
         {
             var contact = await _contactRepository.Get(id);
 
+            if (contact == null)
+            {
+                throw new EntityNotFoundException(nameof(Contact), id);
+            }
+            
             return contact;
         }
 

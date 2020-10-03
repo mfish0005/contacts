@@ -4,21 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Contacts.Api.Data
+namespace Contacts.Api.Models
 {
 	public class PagedList<IEntity> : List<IEntity>
 	{
-		private int CurrentPage { get; }
-		private int TotalPages { get; }
-		private int PageSize { get; }
-		private int TotalCount { get; }
+		private int _currentPage, _totalPages, _pageSize, _totalCount;
 
 		private PagedList(IEnumerable<IEntity> items, int count, int pageNumber, int pageSize)
 		{
-			TotalCount = count;
-			PageSize = pageSize;
-			CurrentPage = pageNumber;
-			TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+			_totalCount = count;
+			_pageSize = pageSize;
+			_currentPage = pageNumber;
+			_totalPages = (int)Math.Ceiling(count / (double)pageSize);
 
 			AddRange(items);
 		}

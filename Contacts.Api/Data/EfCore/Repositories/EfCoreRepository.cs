@@ -30,11 +30,6 @@ namespace Contacts.Api.Data.EfCore.Repositories
         {
             var entity = await _context.Set<TEntity>().FindAsync(id);
 
-            if (entity == null)
-            {
-                return null;
-            }
-
             _context.Set<TEntity>().Remove(entity);
 
             await _context.SaveChangesAsync();

@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Logs" />
+    <Folder Include="Models\Responses" />
     <Folder Include="wwwroot\Services" />
   </ItemGroup>
 

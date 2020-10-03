@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Contacts.Api.Data.EfCore;
 using Contacts.Api.Data.EfCore.Repositories;
+using Contacts.Api.Filters;
 using Contacts.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,10 +27,11 @@ namespace Contacts.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(options =>
+                options.Filters.Add(new ExceptionFilter()));
             services.AddDbContext<ContactsContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetSection("DatabaseConfig")["PostgresSQL"]);
+                options.UseNpgsql(Configuration.GetSection("DatabaseConfig")["PostgreSQL"]);
             });
             services.AddScoped<ContactRepository>();
             services.AddTransient<IContactService, ContactService>();

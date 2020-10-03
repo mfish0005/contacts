@@ -18,7 +18,6 @@ namespace Contacts.Api.Models
 
         public string Address { get; set; }
 
-        [Phone]
         public string Phone { get; set; }
     }
 }
