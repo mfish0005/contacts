@@ -1,6 +1,5 @@
 using System.IO;
 using Microsoft.EntityFrameworkCore;
-using System.Resources;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Contacts.Api.Models;

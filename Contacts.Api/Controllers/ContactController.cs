@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Contacts.Api.Models;
 using Contacts.Api.Models.Requests;
@@ -14,6 +13,7 @@ namespace Contacts.Api.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;
+        
         private readonly ILoggerManager _logger;
 
         public ContactController(IContactService contactService, ILoggerManager logger)
@@ -24,68 +24,57 @@ namespace Contacts.Api.Controllers
 
         // GET: /api/[controller]?pageNumber=n&pageSize=n
         [HttpGet]
-        public async Task<IActionResult> GetContactsPage([FromQuery] PagedListRequest request)
+        public async Task<IActionResult> GetContactsPageAsync([FromQuery] PagedListRequest request)
         {
-            var contacts = await _contactService.GetContactsPage(request);
+            var result = await _contactService.GetContactsPageAsync(request);
 
-            if (contacts == null) {
-                return NotFound();
-            }
-
-            return Ok(contacts);
+            return Ok(result);
         }
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Contact>> GetContactById(int id)
+        public async Task<ActionResult<Contact>> GetContactByIdAsync(int id)
         {
-            var contact = await _contactService.GetContactById(id);
+            var result = await _contactService.GetContactByIdAsync(id);
 
-            return Ok(contact);
+            return Ok(result);
         }
 
         // GET: api/[controller]/count
         [HttpGet]
         [Route("count")]
-        public async Task<ActionResult<int>> GetContactCount()
+        public async Task<ActionResult<int>> GetContactCountAsync()
         {
-            var count = await _contactService.GetContactCount();
+            var result = await _contactService.GetContactCountAsync();
 
-            return Ok(count);
+            return Ok(result);
         }
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutContact(Contact contact)
+        public async Task<ActionResult> PutContactAsync(int id, Contact contact)
         {
-            var result = await _contactService.UpdateContact(contact);
-
-            if (result == null)
-            {
-                return NotFound();
-            }
+            var result = await _contactService.UpdateContactAsync(contact);
 
             return Ok(result);
         }
 
         // POST: api/[controller]
         [HttpPost]
-        public async Task<ActionResult<Contact>> PostContact(Contact contact)
+        public async Task<ActionResult<Contact>> PostContactAsync(Contact contact)
         {
-            var result = await _contactService.CreateContact(contact);
+            var result = await _contactService.CreateContactAsync(contact);
 
             return Ok(result);
         }
 
         // DELETE: api/[controller]/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteContact(int id)
+        public async Task<ActionResult> DeleteContactAsync(int id)
         {
-            var contact = await _contactService.GetContactById(id);
+            var result = await _contactService.DeleteContactAsync(id);
 
-            await _contactService.DeleteContact(id);
-
-            return Ok(contact);
+            return Ok(result);
         }
     }
 }

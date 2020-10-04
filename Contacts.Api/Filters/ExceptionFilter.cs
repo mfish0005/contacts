@@ -16,11 +16,12 @@ namespace Contacts.Api.Filters
 
             var statusCode = HttpStatusCode.InternalServerError;
 
-            if (context.Exception is EntityNotFoundException || context.Exception is PageNotFoundException)
+            if (context.Exception is EntityNotFoundException || context.Exception is EntityPageNotFoundException)
             {
                 statusCode = HttpStatusCode.NotFound;
-                logger.LogError("EntityNotFoundException was thrown");
             }
+
+            logger.LogError($"{context.Exception}");
 
             context.HttpContext.Response.ContentType = "application/json";
             context.HttpContext.Response.StatusCode = (int) statusCode;

@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using Contacts.Api.Data.EfCore;
 using Contacts.Api.Data.EfCore.Repositories;

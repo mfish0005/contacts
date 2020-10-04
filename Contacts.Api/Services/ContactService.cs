@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using Contacts.Api.Data;
 using Contacts.Api.Data.EfCore.Repositories;
 using Contacts.Api.Exceptions;
 using Contacts.Api.Models;
@@ -16,18 +15,18 @@ namespace Contacts.Api.Services
             _contactRepository = repository;
         }
 
-        public async Task<PagedList<Contact>> GetContactsPage(PagedListRequest request)
+        public async Task<PagedList<Contact>> GetContactsPageAsync(PagedListRequest request)
         {
             var contacts = await _contactRepository.GetPagedList(request.PageNumber, request.PageSize);
 
             if (contacts == null || contacts.Count <= 0) {
-                throw new PageNotFoundException(nameof(Contact), request.PageNumber);
+                throw new EntityPageNotFoundException(nameof(Contact), request.PageNumber);
             }
 
             return contacts;
         }
 
-        public async Task<Contact> GetContactById(int id)
+        public async Task<Contact> GetContactByIdAsync(int id)
         {
             var contact = await _contactRepository.Get(id);
 
@@ -39,30 +38,36 @@ namespace Contacts.Api.Services
             return contact;
         }
 
-        public async Task<int> GetContactCount()
+        public async Task<int> GetContactCountAsync()
         {
             var count = await _contactRepository.GetCount();
 
             return count;
         }
 
-        public async Task<Contact> CreateContact(Contact contact)
+        public async Task<Contact> CreateContactAsync(Contact contact)
         {
             await _contactRepository.Add(contact);
 
             return contact;
         }
 
-        public async Task<Contact> UpdateContact(Contact contact)
+        public async Task<Contact> UpdateContactAsync(Contact contact)
         {
-            await _contactRepository.Update(contact);
+            var updatedContact = await _contactRepository.Update(contact);
 
-            return contact;
+            if (updatedContact == null) {
+                throw new EntityNotFoundException(nameof(Contact), contact.Id);
+            }
+
+            return updatedContact;
         }
 
-        public async Task DeleteContact(int id)
+        public async Task<Contact> DeleteContactAsync(int id)
         {
-            await _contactRepository.Remove(id);
+            var contact = GetContactByIdAsync(id);
+            
+            return await _contactRepository.Remove(await contact);
         }
     }
 }

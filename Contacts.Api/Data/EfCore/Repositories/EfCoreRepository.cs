@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contacts.Api.Models;
@@ -26,10 +25,8 @@ namespace Contacts.Api.Data.EfCore.Repositories
             return entity;
         }
 
-        public async Task<TEntity> Remove(int id)
+        public async Task<TEntity> Remove(TEntity entity)
         {
-            var entity = await _context.Set<TEntity>().FindAsync(id);
-
             _context.Set<TEntity>().Remove(entity);
 
             await _context.SaveChangesAsync();

@@ -1,7 +1,4 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Contacts.Api.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Contacts.Api.Data.EfCore.Repositories
 {
@@ -11,7 +8,7 @@ namespace Contacts.Api.Data.EfCore.Repositories
 
         public ContactRepository(ContactsContext context) : base(context)
         {
-            this._context = context;
+            _context = context;
         }
     }
 }

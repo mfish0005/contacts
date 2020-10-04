@@ -15,6 +15,6 @@ namespace Contacts.Api.Data
 
         Task<T> Update(T entity);
 
-        Task<T> Remove(int id);
+        Task<T> Remove(T entity);
     }
 }
