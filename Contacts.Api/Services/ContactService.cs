@@ -20,6 +20,10 @@ namespace Contacts.Api.Services
         {
             var contacts = await _contactRepository.GetPagedList(request.PageNumber, request.PageSize);
 
+            if (contacts == null || contacts.Count <= 0) {
+                throw new PageNotFoundException(nameof(Contact), request.PageNumber);
+            }
+
             return contacts;
         }
 
@@ -31,7 +35,7 @@ namespace Contacts.Api.Services
             {
                 throw new EntityNotFoundException(nameof(Contact), id);
             }
-            
+
             return contact;
         }
 

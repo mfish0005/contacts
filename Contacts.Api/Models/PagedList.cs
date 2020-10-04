@@ -10,6 +10,8 @@ namespace Contacts.Api.Models
 	{
 		private int _currentPage, _totalPages, _pageSize, _totalCount;
 
+		public int MaxPageSize = 25;
+
 		private PagedList(IEnumerable<IEntity> items, int count, int pageNumber, int pageSize)
 		{
 			_totalCount = count;
