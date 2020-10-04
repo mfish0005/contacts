@@ -52,7 +52,7 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 
 
 
-2. Run `docker-compose up` or `docker-compose up -d` to start the containers.
+2. Run `docker-compose up` or `docker-compose up -d` to start the container.
 
 
 
