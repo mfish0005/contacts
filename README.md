@@ -24,7 +24,7 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 3. The database should be running now. Time to deploy the migrations.  Run `dotnet ef database update` and cross your fingers.
 
 ## API
-1. Now that the db is working let's start the thing up.  I didn't have time to `docker-compose` the API itself.  I just open up Visual Studio and run it through IIS.  Works on my machine ;)
+1. Now that the db is working let's start the thing up.  Still need to `docker-compose` the API itself.  For now just run the API the old fashioned way with `dotnet run`.
 
 ## Client
 
@@ -33,8 +33,3 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 2. Run `npm start` or `ng serve` to launch the app.
 
 3. Go to `localhost:4200` to view the app.
-
-### Known Issues
-
-1. After creating/editing a contact for the first time the UI sometimes won't show the contact. Reload the page and it should be there
-2. PrimeNG's virtual scroller(the library I used for the contact list) has a "feature" where it's lazy loading event is called twice when a component loads.  This caused the first page of contacts to be loaded twice.  To get around this I hardcoded the paged endpoint's `pageSize` to sync it with PrimeNG's `event.first` property.  Makes the urls of my paged endpoint look weird but it mostly fixes it for now.
