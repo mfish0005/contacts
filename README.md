@@ -1,4 +1,4 @@
-# Business Contacts
+# Contacts
 
 ## Getting Started
 
