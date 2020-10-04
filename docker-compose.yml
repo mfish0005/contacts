@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+    # contacts-client:
+    #     build: ./contacts-client/.
+    #     image: contacts-client:latest
+    #     depends_on:
+    #         - contacts-server
+    # contacts-server:
+    #     build: ./contacts-server/Contacts.Api
+    #     image: contacts-server:latest
+    #     depends_on:
+    #         - db
+    db:
+        image: postgres
+        environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=contacts
+        volumes:
+        - ./volumes/data/db:/var/lib/postgresql/data
+        ports:
+        - 5432:5432

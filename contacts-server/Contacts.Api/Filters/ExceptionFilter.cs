@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 using Contacts.Api.Exceptions;
-using Contacts.Logger;
+using Contacts.Api.Logger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

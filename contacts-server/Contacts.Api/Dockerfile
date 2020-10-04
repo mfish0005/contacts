@@ -6,9 +6,14 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="${PATH}:/root/.dotnet/tools"
+# TODO: Figure out another way to run the migrations
+# RUN dotnet ef database update
 COPY ["Contacts.Api.csproj", ""]
 RUN dotnet restore "./Contacts.Api.csproj"
 COPY . .
+
 WORKDIR "/src/."
 RUN dotnet build "Contacts.Api.csproj" -c Release -o /app/build
 

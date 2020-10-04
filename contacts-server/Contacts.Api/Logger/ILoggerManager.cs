@@ -1,4 +1,4 @@
-namespace Contacts.Logger
+namespace Contacts.Api.Logger
 {
     public interface ILoggerManager
     {

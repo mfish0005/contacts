@@ -1,6 +1,6 @@
 ﻿using NLog;
 
-namespace Contacts.Logger
+namespace Contacts.Api.Logger
 {
     public class LoggerManager : ILoggerManager
     {

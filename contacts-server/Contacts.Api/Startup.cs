@@ -2,6 +2,7 @@ using System.IO;
 using Contacts.Api.Data.EfCore;
 using Contacts.Api.Data.EfCore.Repositories;
 using Contacts.Api.Filters;
+using Contacts.Api.Logger;
 using Contacts.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
-using Contacts.Logger;
+
 namespace Contacts.Api
 {
     public class Startup
