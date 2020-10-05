@@ -62,7 +62,11 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 
 ## API
 
-1. Now that the db is working let's start the API with `dotnet run`.
+1. Run `dotnet restore` to restore dependencies.
+
+
+
+2. Start the API with `dotnet run`.
 
 
 
