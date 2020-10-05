@@ -56,13 +56,13 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 
 
 
-3. The database should be running now. Time to deploy the migrations. Run `dotnet ef database update`.
+3. The database should be running now. Time to deploy the migrations. `cd` into the `Contacts.Api` folder and run `dotnet ef database update`.
 
 
 
 ## API
 
-1. Now that the db is working let's start the API. For now just run the API the old fashioned way with `dotnet run`.
+1. Now that the db is working let's start the API with `dotnet run`.
 
 
 
