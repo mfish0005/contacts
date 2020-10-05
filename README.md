@@ -7,11 +7,11 @@
 
 This is basically an example of how I might build an Angular/Dotnet Core app. Noteworthy pieces include:
 
-- An ORM agnostic/decoupled repository layer
+- An ORM agnostic service layer
 - A generic paged list implementation for returning paged results from the API
-- An implementation of PrimeNG's `VirtualScroller` component using a paged endpoint to infinitely lazy load entities
+- An implementation of PrimeNG's `VirtualScroller` component using a paged endpoint to lazy load items indefinitely.
 - Custom exceptions in Dotnet Core and an exception filter
-- [NLog](https://nlog-project.org/) implementation for logging debug messages
+- [NLog](https://nlog-project.org/) implementation for logging warnings, errors, etc.
 
 
 

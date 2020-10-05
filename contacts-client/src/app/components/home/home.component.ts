@@ -64,7 +64,6 @@ export class HomeComponent implements OnInit {
 
     if (confirmed) {
       this.contactService.deleteContact(contact).subscribe();
-      // TODO: Refresh the component and send the user back to where they were instead
       window.location.reload();
     } else {
       return;
