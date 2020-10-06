@@ -1,47 +1,48 @@
 <div class="edit-contact page">
-  <section class="section has-text-centered">
-    <div class="container">
-      <div class="columns is-vcentered is-flex is-100vh">
-        <div class="column is-12">
-          <h1 class="title is-size-1">
-            Edit Contact
-          </h1>
-          <form class="contact-form" [formGroup]="editContactForm">
-            <div class="field">
-              <label class="label">Name</label>
-              <div class="control">
-                <input type="text" class="input" required formControlName="name">
-              </div>
-            </div>
+    <section class="section has-text-centered">
+        <div class="container">
+            <div class="columns is-vcentered is-flex is-100vh">
+                <div class="column is-12">
+                    <h1 class="title is-size-1">
+                        Edit Contact
+                    </h1>
+                    <form class="contact-form" [formGroup]="editContactForm">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input type="text" class="input" required formControlName="name">
+                            </div>
+                        </div>
 
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input type="text" class="input" required formControlName="email">
-              </div>
-            </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input type="text" class="input" required formControlName="email">
+                            </div>
+                        </div>
 
-            <div class="field">
-              <label class="label">Phone</label>
-              <div class="control">
-                <input type="text" class="input"  formControlName="phone">
-              </div>
-            </div>
+                        <div class="field">
+                            <label class="label">Phone</label>
+                            <div class="control">
+                                <input type="text" class="input" formControlName="phone">
+                            </div>
+                        </div>
 
-            <div class="field">
-              <label class="label">Address</label>
-              <div class="control">
-                <input type="text" class="input"  formControlName="address">
-              </div>
-            </div>
+                        <div class="field">
+                            <label class="label">Address</label>
+                            <div class="control">
+                                <input type="text" class="input" formControlName="address">
+                            </div>
+                        </div>
 
-            <div class="field is-grouped-centered">
-                <button type="button" class="button is-success" (click)="editContact()" [disabled]="editContactForm.pristine || !editContactForm.valid">Submit</button>
-                <button type="button" class="button is-success is-danger" (click)="cancel()">Cancel</button>
+                        <div class="field is-grouped-centered">
+                            <button type="button" class="button is-success" (click)="editContact()"
+                                [disabled]="editContactForm.pristine || !editContactForm.valid">Submit</button>
+                            <button type="button" class="button is-success is-danger" (click)="cancel()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>

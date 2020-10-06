@@ -4,23 +4,23 @@
 
 
 .button {
-  margin: 0.25rem;
+    margin: 0.25rem;
 }
 
 .is-flex {
-  display: flex;
+    display: flex;
 }
 
 .is-100vh {
-  height: 100vh;
+    height: 100vh;
 }
 
 @import "~bulma";
 
 html {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .contact-form input {
-  max-width: 30rem;
+    max-width: 30rem;
 }

@@ -7,27 +7,27 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'add-contact',
-    component: AddContactComponent,
-  },
-  {
-    path: 'edit-contact/:id',
-    component: EditContactComponent,
-    canActivate: [EditContactGuard]
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'add-contact',
+        component: AddContactComponent,
+    },
+    {
+        path: 'edit-contact/:id',
+        component: EditContactComponent,
+        canActivate: [EditContactGuard]
+    },
+    {
+        path: '**',
+        redirectTo: ''
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

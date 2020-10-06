@@ -17,25 +17,25 @@ import { ContactService } from './services/contact.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-    HomeComponent,
-    AddContactComponent,
-    EditContactComponent
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		BrowserAnimationsModule,
-    VirtualScrollerModule,
-    DataViewModule,
-    HttpClientModule,
-    ReactiveFormsModule
-	],
-	providers: [
-    ContactService,
-    EditContactGuard
-  ],
-	bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AddContactComponent,
+        EditContactComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        VirtualScrollerModule,
+        DataViewModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        ContactService,
+        EditContactGuard
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
