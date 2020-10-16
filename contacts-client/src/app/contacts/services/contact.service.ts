@@ -27,10 +27,10 @@ export class ContactService {
         this.contactState.address = contact.address;
     }
 
-    getContactCount(): Observable<object> {
+    getContactCount(): Observable<number> {
         const url = `${this.baseUrl}/count`;
 
-        return this.http.get(url);
+        return this.http.get<number>(url);
     }
 
     getPagedContacts(pageNumber: number, pageSize: number) {

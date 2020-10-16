@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Contacts.Api.Models;
 using Contacts.Api.Models.Requests;
 using Contacts.Api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Contacts.Api.Controllers
@@ -20,6 +21,7 @@ namespace Contacts.Api.Controllers
 
         // GET: /api/[controller]?pageNumber=n&pageSize=n
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetContactsPageAsync([FromQuery] PagedListRequest request)
         {
             var result = await _contactService.GetContactsPageAsync(request);
@@ -29,6 +31,7 @@ namespace Contacts.Api.Controllers
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Contact>> GetContactByIdAsync(int id)
         {
             var result = await _contactService.GetContactByIdAsync(id);
@@ -48,6 +51,7 @@ namespace Contacts.Api.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult> PutContactAsync(int id, Contact contact)
         {
             var result = await _contactService.UpdateContactAsync(contact);
@@ -57,6 +61,7 @@ namespace Contacts.Api.Controllers
 
         // POST: api/[controller]
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Contact>> PostContactAsync(Contact contact)
         {
             var result = await _contactService.CreateContactAsync(contact);
@@ -66,6 +71,7 @@ namespace Contacts.Api.Controllers
 
         // DELETE: api/[controller]/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteContactAsync(int id)
         {
             var result = await _contactService.DeleteContactAsync(id);

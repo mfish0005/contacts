@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
 
 import { environment } from '../../environments/environment';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 const oktaConfig = {
     issuer: environment.issuer,
@@ -31,7 +32,8 @@ const oktaConfig = {
     ],
     providers: [
         AuthService,
-        { provide: OKTA_CONFIG, useValue: oktaConfig }
+        { provide: OKTA_CONFIG, useValue: oktaConfig },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],
     exports: [
         NavbarComponent

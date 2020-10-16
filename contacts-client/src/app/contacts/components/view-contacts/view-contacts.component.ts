@@ -20,7 +20,7 @@ export class ViewContactsComponent implements OnInit {
 
     pageDifference: number = 0;
 
-    contactCount;
+    contactCount: number;
 
     isAuthenticated: boolean;
 
@@ -33,6 +33,7 @@ export class ViewContactsComponent implements OnInit {
     ngOnInit() {
         this.contactService.getContactCount().subscribe(res => {
             this.contactCount = res;
+            console.log(this.contactCount)
             this.virtualContacts = Array.from({ length: this.contactCount });;
         });
     }

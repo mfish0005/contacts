@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
+using Okta.AspNetCore;
 
 namespace Contacts.Api
 {
@@ -27,6 +28,16 @@ namespace Contacts.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
+                options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
+                options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
+            })
+            .AddOktaWebApi(new OktaWebApiOptions()
+            {
+                OktaDomain = Configuration["Okta:Domain"]
+            });
             services.AddControllers(options =>
                 options.Filters.Add(new ExceptionFilter()));
             services.AddDbContext<ContactsContext>(options =>
@@ -53,6 +64,7 @@ namespace Contacts.Api
             .AllowAnyMethod()
             .AllowAnyHeader());
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
