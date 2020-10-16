@@ -43,11 +43,11 @@ export class EditContactComponent implements OnInit {
 
         this.contactService.editContact(contact).subscribe(res => {
             console.log(`%c ${res.name} was edited successfully`, 'color: lightgreen', res);
-            this.router.navigate(['']);
+            this.router.navigate(['/contacts']);
         });
     }
 
     cancel(): void {
-        this.router.navigate(['']);
+        this.router.navigate(['/contacts']);
     }
 }

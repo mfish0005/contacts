@@ -5,14 +5,14 @@ import { Router } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
-    selector: 'add-contact',
-    templateUrl: './add-contact.component.html',
-    styleUrls: ['./add-contact.component.scss']
+    selector: 'create-contact',
+    templateUrl: './create-contact.component.html',
+    styleUrls: ['./create-contact.component.scss']
 })
 
-export class AddContactComponent implements OnInit {
+export class CreateContactComponent implements OnInit {
 
-    addContactForm = this.formBuilder.group({
+    createContactForm = this.formBuilder.group({
         name: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         phone: [''],
@@ -26,7 +26,7 @@ export class AddContactComponent implements OnInit {
     }
 
     createContact(): void {
-        this.contactService.createContact(this.addContactForm.value).subscribe(res => {
+        this.contactService.createContact(this.createContactForm.value).subscribe(res => {
             console.log(`%c ${res.name} was created successfully`, 'color: lightgreen', res);
             this.router.navigate(['/contacts']);
         });

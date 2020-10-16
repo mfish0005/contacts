@@ -12,7 +12,7 @@
                             [lazy]="true" (onLazyLoad)="lazyLoadContacts($event)">
 
                             <p-header>
-                                <button class="button is-success" (click)="goToAddContact()">Add Contact</button>
+                                <button class="button is-success" (click)="createContact()">Create Contact</button>
                             </p-header>
 
                             <ng-template pTemplate="item" let-contact>

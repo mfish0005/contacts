@@ -74,7 +74,7 @@ export class ViewContactsComponent implements OnInit {
         }
     }
 
-    goToAddContact(): void {
-        this.router.navigate(['/contacts/add']);
+    createContact(): void {
+        this.router.navigate(['/contacts/create']);
     }
 }

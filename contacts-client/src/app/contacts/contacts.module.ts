@@ -7,13 +7,13 @@ import { ContactsRoutingModule } from './contacts-routing.module';
 import { EditContactGuard } from './components/edit-contact/edit-contact.guard';
 import { ContactService } from './services/contact.service';
 import { ViewContactsComponent } from './components/view-contacts/view-contacts.component';
-import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { CreateContactComponent } from './components/create-contact/create-contact.component';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 
 @NgModule({
     declarations: [
         ViewContactsComponent,
-        AddContactComponent,
+        CreateContactComponent,
         EditContactComponent
     ],
     imports: [

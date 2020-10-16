@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { CreateContactComponent } from './components/create-contact/create-contact.component';
 import { OktaAuthGuard } from '@okta/okta-angular';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 import { EditContactGuard } from './components/edit-contact/edit-contact.guard';
@@ -13,8 +13,8 @@ const routes: Routes = [
         canActivate: [OktaAuthGuard]
     },
     {
-        path: 'add',
-        component: AddContactComponent,
+        path: 'create',
+        component: CreateContactComponent,
         canActivate: [OktaAuthGuard]
     },
     {
