@@ -33,7 +33,7 @@ export class ViewContactsComponent implements OnInit {
     ngOnInit() {
         this.contactService.getContactCount().subscribe(res => {
             this.contactCount = res;
-            console.log(this.contactCount)
+
             this.virtualContacts = Array.from({ length: this.contactCount });;
         });
     }
@@ -77,5 +77,4 @@ export class ViewContactsComponent implements OnInit {
     goToAddContact(): void {
         this.router.navigate(['/contacts/add']);
     }
-
 }

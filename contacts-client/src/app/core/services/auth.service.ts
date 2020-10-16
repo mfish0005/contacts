@@ -31,7 +31,7 @@ export class AuthService {
     }
 
     login() {
-        this.oktaAuthService.loginRedirect('');
+        this.oktaAuthService.loginRedirect('/contacts');
     }
 
     async logout() {
@@ -42,15 +42,6 @@ export class AuthService {
 
         // Clear remote session
         window.location.href = `${environment.issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=http://localhost:4200`;
-    }
-
-    testAuthorization() {
-        const url = 'http://localhost:5000/api/users/1';
-        const headers = this.getHeadersWithBearer();
-
-        this.http.get(url, {headers}).subscribe(res => {
-            console.log(res);
-        });
     }
 
     getUserFromOkta() {
