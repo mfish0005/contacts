@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EditContactGuard } from './components/edit-contact/edit-contact.guard';
-import { HomeComponent } from './components/home/home.component';
-import { EditContactComponent } from './components/edit-contact/edit-contact.component';
-import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { HomeComponent } from './home/home.component';
+import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
 const routes: Routes = [
     {
@@ -12,13 +10,13 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'add-contact',
-        component: AddContactComponent,
+        path: 'implicit/callback',
+        component: OktaCallbackComponent
     },
     {
-        path: 'edit-contact/:id',
-        component: EditContactComponent,
-        canActivate: [EditContactGuard]
+        path: 'contacts',
+        loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule),
+        canActivate: [OktaAuthGuard]
     },
     {
         path: '**',

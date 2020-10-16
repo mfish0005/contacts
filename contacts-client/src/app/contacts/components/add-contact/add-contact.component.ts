@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { ContactService } from 'src/app/services/contact.service';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
     selector: 'add-contact',
@@ -28,11 +28,11 @@ export class AddContactComponent implements OnInit {
     createContact(): void {
         this.contactService.createContact(this.addContactForm.value).subscribe(res => {
             console.log(`%c ${res.name} was created successfully`, 'color: lightgreen', res);
-            this.router.navigate(['']);
+            this.router.navigate(['/contacts']);
         });
     }
 
     cancel(): void {
-        this.router.navigate(['']);
+        this.router.navigate(['/contacts']);
     }
 }

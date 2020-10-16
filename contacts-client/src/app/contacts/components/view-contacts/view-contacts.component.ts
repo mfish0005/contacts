@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from 'src/app/models/contact.model';
-import { ContactService } from 'src/app/services/contact.service';
+import { Contact } from '../../models/contact.model';
+import { ContactService } from '../../services/contact.service';
+import { OktaAuthService } from '@okta/okta-angular';
 import { Router } from '@angular/router';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+  selector: 'app-view-contacts',
+  templateUrl: './view-contacts.component.html',
+  styleUrls: ['./view-contacts.component.scss']
 })
+export class ViewContactsComponent implements OnInit {
 
-export class HomeComponent implements OnInit {
     contacts: Contact[] = [];
 
     virtualContacts: Contact[] = [];
@@ -21,14 +22,19 @@ export class HomeComponent implements OnInit {
 
     contactCount;
 
-    constructor(private contactService: ContactService, private router: Router) {
+    isAuthenticated: boolean;
+
+    constructor(private contactService: ContactService, private oktaAuthService: OktaAuthService, private router: Router) {
+        this.oktaAuthService.$authenticationState.subscribe(
+            (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+        );
     }
 
     ngOnInit() {
         this.contactService.getContactCount().subscribe(res => {
             this.contactCount = res;
             this.virtualContacts = Array.from({ length: this.contactCount });;
-        })
+        });
     }
 
     lazyLoadContacts(event: LazyLoadEvent): void {
@@ -53,9 +59,7 @@ export class HomeComponent implements OnInit {
 
     editContact(contact: Contact): void {
         this.contactService.setContactState(contact);
-        this.router.navigateByUrl(
-            `/edit-contact/${contact.id}`,
-        );
+        this.router.navigate([`/contacts/edit/${contact.id}`]);
     }
 
     deleteContact(contact: Contact): void {
@@ -70,6 +74,7 @@ export class HomeComponent implements OnInit {
     }
 
     goToAddContact(): void {
-        this.router.navigate(['/add-contact']);
+        this.router.navigate(['/contacts/add']);
     }
+
 }

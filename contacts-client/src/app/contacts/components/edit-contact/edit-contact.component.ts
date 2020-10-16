@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Contact } from 'src/app/models/contact.model';
-import { ContactService } from 'src/app/services/contact.service';
+import { Contact } from '../../models/contact.model';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
     selector: 'edit-contact',
     templateUrl: './edit-contact.component.html',
     styleUrls: ['./edit-contact.component.scss']
 })
-
 export class EditContactComponent implements OnInit {
 
     contactState: Contact;
