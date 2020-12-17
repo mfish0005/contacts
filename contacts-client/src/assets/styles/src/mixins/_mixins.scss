@@ -1,0 +1,17 @@
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+}
+
+// truncate text to one line
+// accepts width to truncate to
+// defaults to 100% of parent width
+@mixin truncate-to-max-width($width: 100%) {
+  max-width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
