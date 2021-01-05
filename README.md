@@ -11,6 +11,7 @@ This is basically an example of how I might build an Angular/Dotnet Core app. No
 - A generic paged list implementation for returning paged results from the API
 - An implementation of PrimeNG's `VirtualScroller` component using a paged endpoint to lazy load items indefinitely.
 - Custom exceptions in Dotnet Core and an exception filter
+- A rough implementation of my fully documented CSS class library
 - [NLog](https://nlog-project.org/) implementation for logging warnings, errors, etc.
 
 
