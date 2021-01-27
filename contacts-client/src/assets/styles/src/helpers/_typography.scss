@@ -61,22 +61,3 @@ $alignments: ("centered": "center", "justified": "justify", "left": "left", "rig
 .has-text-weight-light {
   font-weight: $weight-light !important;
 }
-
-// Links
-
-.is-link, .is-link-underlined {
-  color: $link;
-  cursor: pointer;
-
-  &:hover {
-    color: $link-hover;
-  }
-}
-
-.is-link:hover {
-  text-decoration: none;
-}
-
-.is-link-underlined:hover {
-  text-decoration: underline;
-}

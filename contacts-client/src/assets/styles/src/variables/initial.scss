@@ -4,20 +4,9 @@ For example, we declare $green in here.  Then in the _derived.scss file we can d
 */
 
 // Colors
-
 $white: #fff;
 $black: #000;
 
-$green-super-light: #f6feed;
-$green-lightest: #edfcda;
-$green-lighter: #c2eda4;
-$green-light: #8ddb56;
-$green: #50a000;
-$green-dark: #438500;
-$green-darker: #356b00;
-$green-darkest: #285000;
-
-$gray-super-light: #f8f7f6;
 $gray-lightest: #eceff1;
 $gray-lighter: #cfd8dc;
 $gray-light: #b0bec5;
@@ -26,71 +15,38 @@ $gray-dark: #718792;
 $gray-darker: #455a64;
 $gray-darkest: #1c313a;
 
-$orange-super-light: #fff3e0;
-$orange-lightest: #fff3e0;
-$orange-lighter: #ffe0b2;
+$green-light: #8ddb56;
+$green: #50a000;
+$green-dark: #438500;
+
 $orange-light: #ffa726;
 $orange: #ff9800;
 $orange-dark: #e96100;
-$orange-darker: #c43e00;
-$orange-darkest: #c43e00;
 
-$blue-super-light: #e2e9f3;
-$blue-lightest: #e2e9f3;
-$blue-lighter: #6e93cc;
 $blue-light: #3462ae;
 $blue: #17489e;
 $blue-dark: #17489e;
-$blue-darker: #1e3866;
-$blue-darkest: #1e3866;
 
-$aqua-super-light: #e9f9ff;
-$aqua-lightest: #b3e5fc;
-$aqua-lighter: #81d4fa;
-$aqua-light: #41b7e3;
-$aqua: #0099cc;
-$aqua-dark: #00779f;
-$aqua-darker: #005572;
-$aqua-darkest: #005572;
-
-$yellow-super-light: #fdf6c9;
-$yellow-lightest: #fdf6c9;
-$yellow-lighter: #fff490;
 $yellow-light: #fae64e;
 $yellow: #f5d80c;
 $yellow-dark: #e0ad09;
-$yellow-darker: #cc8206;
-$yellow-darkest: #cc8206;
 
-$red-super-light: #fbe9e7;
-$red-lightest: #fbe9e7;
-$red-lighter: #ef9a9a;
 $red-light: #d32f2f;
 $red: #a91818;
 $red-dark: #7f0000;
-$red-darker: #4c0000;
-$red-darkest: #4c0000;
 
-$purple-super-light: #f3e5f5;
-$purple-lightest: #f3e5f5;
-$purple-lighter: #e1bee7;
 $purple-light: #ce93d8;
 $purple: #7b1fa2;
 $purple-dark: #4a0072;
-$purple-darker: #33004f;
-$purple-darkest: #33004f;
 
 // Typography
-
-$size-1: 2.4rem;
-$size-2: 1.8rem;
-$size-3: 1.6rem;
+$size-1: 2.5rem;
+$size-2: 2rem;
+$size-3: 1.75rem;
 $size-4: 1.5rem;
-$size-5: 1.4rem;
-$size-6: 1.3rem;
-$size-7: 1.2rem;
-$size-8: 1.1rem;
-$size-9: 1rem;
+$size-5: 1.25rem;
+$size-6: 1rem;
+$size-7: 0.75rem;
 
 $weight-semibold: 600;
 $weight-bold: 700;

@@ -5,7 +5,6 @@
 Example of derived variables include:
 
  - Our primary theme color: `$primary: $green;`
- - Our link color: `$link: $aqua;`
  - Warning message color: `$warning: $orange;`
  - Success message color: `$success: $green;`
  - Primary font family: `$family-primary: $family-sans-serif;`
@@ -27,15 +26,13 @@ Set a color or background color using a literal color variable.
 }
 ```
 ## Derived Colors
-| Class   | Color  | Hex     |
-|---------|--------|---------|
-| primary | green  | #50a000 |
-| success | green  | #50a000 |
-| warning | orange | #ff9800 |
-| danger  | red    | #a91818 |
-| info    | blue   | #17489e |
-| link    | aqua   | #0099cc |
-| link-hover    | aqua-darker | #005572 |
+| Class   | Color       | Hex     |
+|---------|-------------|---------|
+| primary | green       | #50a000 |
+| success | green       | #50a000 |
+| warning | orange      | #ff9800 |
+| danger  | red         | #a91818 |
+| info    | blue        | #17489e |
 | text    | gray-darker | #455a64 |
 
 ## Color & Shade Maps

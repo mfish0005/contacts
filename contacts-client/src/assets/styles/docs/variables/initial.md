@@ -4,7 +4,7 @@
 ## - Summary -
 Examples of initial variables would be:
 
- - Literal colors such as `$green: #50a000;` and `$aqua: #0099cc;`
+ - Literal colors such as `$green: #50a000;`
  - Literal font sizes such as `$size-1: 2.4rem;`
  - Font weights such as `$weight-bold: 700;`
  - Font families like `$family-sans-serif: "Open Sans", sans-serif;`
@@ -15,7 +15,7 @@ Examples of initial variables would be:
 
 ## - Colors -
 Literal colors
-**NOTE:  Using $green, $red, $orange, or $blue to set primary color, link color, text color, success, warning, danger, or info messages? It is best to use the derived variables instead. See derived.md for full details**
+**NOTE:  Using $green, $red, $orange, or $blue to set primary color, text color, success, warning, danger, or info messages? It is best to use the derived variables instead. See derived.md for full details**
 
 ### Usage
 
@@ -44,16 +44,14 @@ Set a color or background color using a literal color variable.
 ## Literal Colors Continued
 | Color             | Hex     | Color               | Hex     | Color            | Hex     | Color               | Hex     |
 |-------------------|---------|---------------------|---------|------------------|---------|-------------=-------|---------|
-| $aqua-super-light | #e9f9ff | $yellow-super-light | #fdf6c9 | $red-super-light | #fbe9e7 | $purple-super-light | #f3e5f5 |
-| $aqua-lightest    | #b3e5fc | $yellow-lightest    | #fdf6c9 | $red-lightest    | #fbe9e7 | $purple-lightest    | #f3e5f5 |
-| $aqua-lighter     | #81d4fa | $yellow-lighter     | #fff490 | $red-lighter     | #ef9a9a | $purple-lighter     | #e1bee7 |
-| $aqua-light       | #41b7e3 | $yellow-light       | #fae64e | $red-light       | #d32f2f | $purple-light       | #ce93d8 |
-| $aqua             | #0099cc | $yellow             | #f5d80c | $red             | #a91818 | $purple             | #7b1fa2 |
-| $aqua-dark        | #00779f | $yellow-dark        | #e0ad09 | $red-dark        | #7f0000 | $purple-dark        | #4a0072 |
-| $aqua-darker      | #005572 | $yellow-darker      | #cc8206 | $red-darker      | #4c0000 | $purple-darker      | #33004f |
-| $aqua-darkest     | #005572 | $yellow-darkest     | #cc8206 | $red-darkest     | #4c0000 | $purple-darkest     | #33004f |
-| $white            | #ffffff |                     |         |                  |         |                     |         |
-| $black            | #000000 |                     |         |                  |         |                     |         |
+| $white            | #ffffff | $yellow-super-light | #fdf6c9 | $red-super-light | #fbe9e7 | $purple-super-light | #f3e5f5 |
+| $black            | #000000 | $yellow-lightest    | #fdf6c9 | $red-lightest    | #fbe9e7 | $purple-lightest    | #f3e5f5 |
+|                   |         | $yellow-lighter     | #fff490 | $red-lighter     | #ef9a9a | $purple-lighter     | #e1bee7 |
+|                   |         | $yellow-light       | #fae64e | $red-light       | #d32f2f | $purple-light       | #ce93d8 |
+|                   |         | $yellow             | #f5d80c | $red             | #a91818 | $purple             | #7b1fa2 |
+|                   |         | $yellow-dark        | #e0ad09 | $red-dark        | #7f0000 | $purple-dark        | #4a0072 |
+|                   |         | $yellow-darker      | #cc8206 | $red-darker      | #4c0000 | $purple-darker      | #33004f |
+|                   |         | $yellow-darkest     | #cc8206 | $red-darkest     | #4c0000 | $purple-darkest     | #33004f |
 
 ## - Typography -
 

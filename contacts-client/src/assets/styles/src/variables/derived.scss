@@ -12,10 +12,6 @@ $danger: $red;
 // Text colors
 $text: $gray-darker;
 
-// Link colors
-$link: $aqua;
-$link-hover: $aqua-darker;
-
 // Colors
 $colors: (
   "white": ($white),
@@ -27,9 +23,7 @@ $colors: (
   "purple": ($purple),
   "gray": ($gray),
   "orange": ($orange),
-  "aqua": ($aqua),
   "primary": ($primary),
-  "link": ($link),
   "info": ($info),
   "success": ($success),
   "warning": ($warning),
@@ -37,13 +31,6 @@ $colors: (
 );
 
 $shades: (
-  "green-light": $green-light,
-  "green-lighter": $green-lighter,
-  "green-lightest": $green-lightest,
-  "green-super-light": $green-super-light,
-  "green-dark": $green-dark,
-  "green-darker": $green-darker,
-  "green-darkest": $green-darkest,
   "gray-light": $gray-light,
   "gray-lighter": $gray-lighter,
   "gray-lightest": $gray-lightest,
@@ -51,48 +38,18 @@ $shades: (
   "gray-dark": $gray-dark,
   "gray-darker": $gray-darker,
   "gray-darkest": $gray-darkest,
+  "green-light": $green-light,
+  "green-dark": $green-dark,
   "orange-light": $orange-light,
-  "orange-lighter": $orange-lighter,
-  "orange-lightest": $orange-lightest,
-  "orange-super-light": $orange-super-light,
   "orange-dark": $orange-dark,
-  "orange-darker": $orange-darker,
-  "orange-darkest": $orange-darkest,
   "blue-light": $blue-light,
-  "blue-lighter": $blue-lighter,
-  "blue-lightest": $blue-lightest,
-  "blue-super-light": $blue-super-light,
   "blue-dark": $blue-dark,
-  "blue-darker": $blue-darker,
-  "blue-darkest": $blue-darkest,
-  "aqua-light": $aqua-light,
-  "aqua-lighter": $aqua-lighter,
-  "aqua-lightest": $aqua-lightest,
-  "aqua-super-light": $aqua-super-light,
-  "aqua-dark": $aqua-dark,
-  "aqua-darker": $aqua-darker,
-  "aqua-darkest": $aqua-darkest,
   "yellow-light": $yellow-light,
-  "yellow-lighter": $yellow-lighter,
-  "yellow-lightest": $yellow-lightest,
-  "yellow-super-light": $yellow-super-light,
   "yellow-dark": $yellow-dark,
-  "yellow-darker": $yellow-darker,
-  "yellow-darkest": $yellow-darkest,
   "red-light": $red-light,
-  "red-lighter": $red-lighter,
-  "red-lightest": $red-lightest,
-  "red-super-light": $red-super-light,
   "red-dark": $red-dark,
-  "red-darker": $red-darker,
-  "red-darkest": $red-darkest,
   "purple-light": $purple-light,
-  "purple-lighter": $purple-lighter,
-  "purple-lightest": $purple-lightest,
-  "purple-super-light": $purple-super-light,
   "purple-dark": $purple-dark,
-  "purple-darker": $purple-darker,
-  "purple-darkest": $purple-darkest,
 );
 
 // Typography

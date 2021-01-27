@@ -125,19 +125,3 @@ Removes text decoration by adding `text-decoration: none`
   <p class="is-not-decorated">Except this because we added .is-not-decorated to it</p>
 <div>
 ```
-
-## .is-link
-Adds the default link color, hover color, and cursor: pointer to an element.
-
-#### Usage:
-```html
-<a class="is-link has-text-weight-semibold">This is what a default link looks like</a>
-```
-
-## .is-link-underlined
-Adds the default link color, hover color, cursor: pointer, and underline on hover to an element
-
-### Usage:
-```html
-<a class="is-link-underlined">This is an underlined link</a>
-```

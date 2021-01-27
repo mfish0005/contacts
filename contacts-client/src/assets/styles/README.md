@@ -20,8 +20,6 @@
     - [is-italic](./docs/helpers/typography.md#is-italic)
     - [is-underlined](./docs/helpers/typography.md#is-underlined)
     - [is-not-decorated](./docs/helpers/typography.md#is-not-decorated)
-    - [is-link](./docs/helpers/typography.md#is-link)
-    - [is-link-underlined](./docs/helpers/typography.md#is-link-underlined)
     - [page-heading](./docs/helpers/typography.md#page-heading)
     - [section-heading](./docs/helpers/typography.md#section-heading)
     - [subheading](./docs/helpers/typography.md#subheading)
@@ -66,12 +64,10 @@
     - [has-padding-{side}-{x}](./docs/helpers/spacing.md#has-padding-{side}-{x})
 
 - [Mixins](./docs/mixins.md)
-  - [truncate-to-max-width](./docs/mixins.md#truncate-to-max-width)
+  - [truncate-text-by-width](./docs/mixins.md#truncate-text-by-width)
 
 - [Placeholders](./docs/placeholders.md)
   - [flex-center](./docs/placeholders.md#flex-center)
-  - [svg-link-wrapper](./docs/placeholders.md#svg-link-wrapper)
-  - [clear-field](./docs/placeholders.md#clear-field)
 
 - [Variables](./docs/variables)
   - [Initial Variables](./docs/variables/initial.md)
@@ -79,14 +75,7 @@
     - [Colors](./docs/variables/initial.md#colors)
     - [Typography](./docs/variables/initial.md#typography)
     - [Spacing](./docs/variables/initial.md#spacing)
-    - [body-min-width](./docs/variables.md#body-min-width)
-    - [body-min-height](./docs/variables.md#body-min-height)
-    - [header-height](./docs/variables.md#header-height)
-    - [top-nav-height](./docs/variables.md#top-nav-height)
-    - [simple-search-height](./docs/variables.md#simple-search-height)
-    - [left-nav-width](./docs/variables.md#left-nav-width)
-    - [svg-link-wrapper](./docs/variables.md#svg-link-wrapper)
-    - [clear-field](./docs/variables.md#clear-field)
+
   - [Derived Variables](./docs/variables/derived.md)
     - [Summary](./docs/variables/derived.md#summary)
     - [Colors](./docs/variables/derived.md#colors)
