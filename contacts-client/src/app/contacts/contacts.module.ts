@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { SharedModule } from '../shared/shared.module';
 
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { EditContactGuard } from './components/edit-contact/edit-contact.guard';
@@ -18,6 +19,7 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
     ],
     imports: [
         CommonModule,
+        SharedModule,
         VirtualScrollerModule,
         ReactiveFormsModule,
         ContactsRoutingModule

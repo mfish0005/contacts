@@ -6,8 +6,6 @@ import { CanActivate } from '@angular/router';
 })
 export class AuthGuard implements CanActivate {
     canActivate(): boolean {
-        // If a user is authenticated return true
         return true;
-        // Else redirect them to the login screen
     }
 }

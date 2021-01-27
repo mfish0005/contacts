@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -23,7 +22,6 @@ import { SharedModule } from './shared/shared.module';
         AppRoutingModule,
         BrowserAnimationsModule,
         CoreModule,
-        SharedModule,
         VirtualScrollerModule,
         ReactiveFormsModule
     ],

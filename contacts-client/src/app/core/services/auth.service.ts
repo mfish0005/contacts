@@ -15,19 +15,11 @@ export class AuthService {
     constructor(private oktaAuthService: OktaAuthService, private http: HttpClient) {
         this.getAccessToken().subscribe(token => {
             this.accessToken = token;
-            this.getHeadersWithBearer();
         });
     }
 
     getAccessToken(): Observable<string> {
         return from(this.oktaAuthService.getAccessToken());
-    }
-
-    getHeadersWithBearer(): HttpHeaders {
-        const headers = new HttpHeaders()
-            .set('Authorization', `Bearer ${this.accessToken}`);
-
-        return headers;
     }
 
     login() {
@@ -47,11 +39,6 @@ export class AuthService {
     getUserFromOkta() {
         const url = "https://dev-881723.okta.com/api/v1/users/me";
 
-        const headers = new HttpHeaders()
-        .set('Authorization', `Bearer ${this.accessToken}`);
-
-        this.http.get(url, {headers}).subscribe(res => {
-            console.log(res);
-        })
+        this.http.get(url).subscribe();
     }
 }

@@ -11,7 +11,6 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(public authService: AuthService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
         this.authService.getAccessToken().subscribe(token => {
             this.accessToken = token;
         })
