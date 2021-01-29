@@ -13,15 +13,10 @@ import { LazyLoadEvent } from 'primeng/api';
 export class ViewContactsComponent implements OnInit {
 
     contacts: Contact[] = [];
-
     virtualContacts: Contact[] = [];
-
     loadedContacts: Contact[] = [];
-
     pageDifference: number = 0;
-
     contactCount: number;
-
     isAuthenticated: boolean;
 
     constructor(private contactService: ContactService, private oktaAuthService: OktaAuthService, private router: Router) {
@@ -43,12 +38,11 @@ export class ViewContactsComponent implements OnInit {
             this.pageDifference = this.pageDifference + 24;
         }
 
-        this.contactService.getPagedContacts(event.first - this.pageDifference, event.rows).subscribe(contacts => {
+        this.contactService.getContactsPage(event.first - this.pageDifference, event.rows).subscribe(contacts => {
             // Log the contacts to demonstrate that it's using a paged response
-            console.log('%c GOT PAGE: ', 'color: green;', contacts);
+            console.log('%c Got contacts page: ', 'color: green;', contacts);
 
             this.contacts = contacts;
-
             this.loadedContacts = this.contacts;
 
             Array.prototype.splice.apply(this.virtualContacts, [...

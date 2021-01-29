@@ -10,7 +10,6 @@ import { Contact } from '../models/contact.model';
 export class ContactService {
 
     contactState: Contact = new Contact();
-
     baseUrl: string = 'http://localhost:5000/api/contacts';
 
     constructor(private http: HttpClient) { }
@@ -33,7 +32,7 @@ export class ContactService {
         return this.http.get<number>(url);
     }
 
-    getPagedContacts(pageNumber: number, pageSize: number) {
+    getContactsPage(pageNumber: number, pageSize: number) {
         const httpParams: HttpParams = new HttpParams()
             .set('pageNumber', pageNumber.toString())
             .set('pageSize', pageSize.toString());
