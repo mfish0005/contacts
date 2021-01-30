@@ -8,9 +8,9 @@
             "@app/*": [
                 "app/*"
             ],
-            "ng-utilities": [
-                "dist/ng-utilities/ng-utilities",
-                "dist/ng-utilities"
+            "fish-common": [
+                "dist/fish-common/fish-common",
+                "dist/fish-common"
             ]
         }
     },

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { HeroModule } from 'fish-common';
 import { SharedModule } from '../../shared/shared.module';
 import { ContactsRoutingModule } from './contacts-routing.module';
 
@@ -22,7 +23,8 @@ import { EditContactComponent } from './components/edit-contact/edit-contact.com
         SharedModule,
         VirtualScrollerModule,
         ReactiveFormsModule,
-        ContactsRoutingModule
+        ContactsRoutingModule,
+        HeroModule
     ],
     providers: [
         ContactService,

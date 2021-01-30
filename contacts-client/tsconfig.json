@@ -14,10 +14,10 @@
       "path": "./tsconfig.spec.json"
     },
     {
-      "path": "./projects/ng-utilities/tsconfig.lib.json"
+      "path": "./projects/fish-common/tsconfig.lib.json"
     },
     {
-      "path": "./projects/ng-utilities/tsconfig.spec.json"
+      "path": "./projects/fish-common/tsconfig.spec.json"
     }
 ]
 }

@@ -126,38 +126,38 @@
         }
       }
     },
-    "ng-utilities": {
+    "fish-common": {
       "projectType": "library",
-      "root": "projects/ng-utilities",
-      "sourceRoot": "projects/ng-utilities/src",
+      "root": "projects/fish-common",
+      "sourceRoot": "projects/fish-common/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng-utilities/tsconfig.lib.json",
-            "project": "projects/ng-utilities/ng-package.json"
+            "tsConfig": "projects/fish-common/tsconfig.lib.json",
+            "project": "projects/fish-common/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-utilities/tsconfig.lib.prod.json"
+              "tsConfig": "projects/fish-common/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-utilities/src/test.ts",
-            "tsConfig": "projects/ng-utilities/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-utilities/karma.conf.js"
+            "main": "projects/fish-common/src/test.ts",
+            "tsConfig": "projects/fish-common/tsconfig.spec.json",
+            "karmaConfig": "projects/fish-common/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-utilities/tsconfig.lib.json",
-              "projects/ng-utilities/tsconfig.spec.json"
+              "projects/fish-common/tsconfig.lib.json",
+              "projects/fish-common/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
