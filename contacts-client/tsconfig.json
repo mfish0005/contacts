@@ -12,6 +12,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ng-utilities/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ng-utilities/tsconfig.spec.json"
     }
 ]
 }
