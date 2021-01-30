@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
     },
     {
         path: 'contacts',
-        loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule),
+        loadChildren: () => import('./modules/contacts/contacts.module').then(m => m.ContactsModule),
         canActivate: [OktaAuthGuard]
     },
     {
