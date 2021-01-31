@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HeroModule } from 'fish-common';
 
 import { HomeComponent } from './components/home.component';
 import { HomeRoutingModule } from './home-routing.module';
@@ -8,7 +9,8 @@ import { HomeRoutingModule } from './home-routing.module';
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    HeroModule
   ]
 })
 export class HomeModule { }
