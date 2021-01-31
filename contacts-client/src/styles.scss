@@ -6,6 +6,8 @@
 
 .button {
     margin: 0.25rem;
+    font-size: $size-6;
+    font-weight: $weight-semibold;
 }
 
 .is-flex {
@@ -16,6 +18,26 @@
     height: 100vh;
 }
 
+html {
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+.contact-form input {
+    max-width: 30rem;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 50%;
+}
+
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/grid/columns.sass";
 @import "bulma/sass/components/navbar.sass";
@@ -24,11 +46,3 @@
 @import "bulma/sass/form/select.sass";
 @import "bulma/sass/form/tools.sass";
 @import "bulma/sass/form/input-textarea.sass";
-
-html {
-    overflow: hidden;
-}
-
-.contact-form input {
-    max-width: 30rem;
-}

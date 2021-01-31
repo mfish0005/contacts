@@ -1,0 +1,7 @@
+@import 'fish-styles/variables/all';
+
+.navbar-start a {
+    &:hover {
+        color: $primary;
+    }
+}

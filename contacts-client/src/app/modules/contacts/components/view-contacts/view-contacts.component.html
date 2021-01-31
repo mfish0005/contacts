@@ -1,9 +1,9 @@
 <div class="view-contacts page">
     <section class="section has-text-centered">
         <div class="container">
-            <div class="columns is-vcentered is-flex is-100vh">
+            <div class="columns is-vcentered is-flex is-100vh has-margin-left-2 has-margin-right-2">
                 <div class="column is-12">
-                    <h1 class="is-size-1">
+                    <h1 class="title is-size-3 is-uppercase has-text-weight-bold">
                         Contacts
                     </h1>
 
@@ -12,41 +12,40 @@
                             [lazy]="true" (onLazyLoad)="lazyLoadContacts($event)">
 
                             <p-header>
-                                <button class="button is-success" (click)="createContact()">Create Contact</button>
+                                <button class="button is-success" (click)="createContact()">Create</button>
                             </p-header>
 
                             <ng-template pTemplate="item" let-contact>
-                                <div class="columns is-vcentered is-flex contact-info">
-                                    <div class="column is-2">{{contact.id}}</div>
-
+                                <div class="columns is-marginless is-vcentered is-flex">
                                     <div class="column is-3">
                                         <p class="is-size-5">
-                                            Name: {{contact.name}}
+                                            # {{contact.id}}
+                                        </p>
+                                    </div>
+                                    <div class="column is-6">
+                                        <p class="is-size-5 has-text-weight-bold">
+                                            {{contact.name}}
                                         </p>
                                         <p class="is-size-5">
-                                            Email: {{contact.email}}
+                                            {{contact.email}}
                                         </p>
-                                    </div>
-
-                                    <div class="column is-2">
-                                        <button class="button is-success" (click)="editContact(contact)">Edit</button>
-
-                                        <ng-template class="button-spacer"></ng-template>
-
-                                        <button class="button is-danger" (click)="deleteContact(contact)">Delete</button>
-                                    </div>
-
-                                    <div class="column is-3">
                                         <p class="is-size-5" *ngIf="contact.phone">
-                                            Phone: {{contact.phone}}
+                                            {{contact.phone}}
                                         </p>
 
                                         <p class="is-size-5" *ngIf="contact.address">
-                                            Address: {{contact.address}}
+                                            {{contact.address}}
                                         </p>
                                     </div>
-
-                                    <div class="column is-2"></div>
+                                    <div class="column is-3">
+                                        <div class="buttons">
+                                            <button class="button is-success"
+                                                (click)="editContact(contact)">Edit</button>
+                                            <ng-template class="button-spacer"></ng-template>
+                                            <button class="button is-danger"
+                                                (click)="deleteContact(contact)">Delete</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </ng-template>
 
