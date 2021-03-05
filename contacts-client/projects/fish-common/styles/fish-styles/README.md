@@ -42,6 +42,7 @@
     - [is-pulled-left](./docs/helpers/general.md#is-pulled-left)
     - [is-pulled-right](./docs/helpers/general.md#is-pulled-right)
     - [is-clearfix](./docs/helpers/general.md#is-clearfix)
+    - [is-100vh]('./docs/helpers/general.md#is-100vh)
 
   - [Overflow](./docs/helpers/general.md#Overflow)
     - [is-clipped](./docs/helpers/general.md#is-clipped)

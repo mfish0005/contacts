@@ -10,24 +10,12 @@
     font-weight: $weight-semibold;
 }
 
-.is-flex {
-    display: flex;
-}
-
-.is-100vh {
-    height: 100vh;
-}
-
 html {
     overflow: hidden;
 }
 
 body {
     margin: 0;
-}
-
-.contact-form input {
-    max-width: 30rem;
 }
 
 hr {

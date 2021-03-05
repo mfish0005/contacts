@@ -52,3 +52,6 @@ Removes any **radius**
 
 ## .is-shadowless
 Removes any **shadow**
+
+## .is-100vh
+Make an element 100vh
