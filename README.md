@@ -89,11 +89,7 @@ You need `dotnet ef` to deploy the migrations: `dotnet tool install --global dot
 
 
 
-2. To build the helper libraries you need to be in the fish-common project's root: `cd projects/fish-common`
-
-
-
-3. Run `ng build projects/fish-common` and `cd` back into the `contacts-client` directory
+3. Run `ng build fish-common` to build the common library.
 
 
 
